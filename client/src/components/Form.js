@@ -115,7 +115,7 @@ const Form = ({ usersInfo, setUsersInfo }) => {
           />
         )}
 
-        {назад && (
+        {навыки && (
           <textarea
             placeholder={questions[17]}
             {...register("бесполезное", { required: true })}
@@ -226,8 +226,10 @@ const Form = ({ usersInfo, setUsersInfo }) => {
           />
         )}
 
-        <textarea placeholder={questions[0]} {...register("новое")} />
-
+        <textarea placeholder={questions[0]} {...register("новое")} 
+        {...register("новое", { required: true })}
+        />
+        
         <br />
       </form>
     </>
