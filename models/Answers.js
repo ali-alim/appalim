@@ -22,6 +22,8 @@ const AnswersSchema = new mongoose.Schema({
   назад:String,
   бесполезное:String,
   важное:String,
+  секрет:String,
+
   },
 
 );

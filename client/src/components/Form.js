@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
@@ -34,6 +35,7 @@ const Form = ({ usersInfo, setUsersInfo }) => {
       навыки,
       бесполезное,
       важное,
+      секрет,
     };
     setUsersInfo([...usersInfo, newList]);
 
@@ -74,12 +76,13 @@ const Form = ({ usersInfo, setUsersInfo }) => {
   const решения = watch("решения");
   const встречи = watch("встречи");
   const навыки = watch("навыки");
-  const назад = watch("назад");
   const бесполезное = watch("бесполезное");
   const важное = watch("важное");
+  const секрет = watch("секрет");
 
   const questions = [
-    "Что нового ты узнал и что из этого внедрил?",
+    // "Что нового ты узнал и что из этого внедрил?",
+    "Как тебя зовут?",
     "Твое самое большое достижение за неделю?",
     "Где ты тормозил, тратил время впустую, бездействовал?",
     "Что из того, что ты откладываешь нужно сделать на следующей неделе?",
@@ -100,8 +103,11 @@ const Form = ({ usersInfo, setUsersInfo }) => {
     "Если бы следующая неделя была бы последней в твоей жизни, какое бы одно дело ты сделал уже завтра?",
   ];
 
+  const [username, setUsername] = useState("");
+
   return (
     <>
+      {/* {username && ( */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>ВОПРОСЫ</h1>
 
@@ -226,12 +232,16 @@ const Form = ({ usersInfo, setUsersInfo }) => {
           />
         )}
 
-        <textarea placeholder={questions[0]} {...register("новое")} 
-        {...register("новое", { required: true })}
-        />
-        
+          <textarea
+            placeholder={questions[0]}
+            {...register("новое", { required: true })}
+          />
+
+
+
         <br />
       </form>
+      {/* )} */}
     </>
   );
 };
