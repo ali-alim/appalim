@@ -27,7 +27,7 @@ const Answers = () => {
   ];
   useEffect(() => {
     axios
-      .get("http://localhost:5000/answers")
+      .get("http://appalim.herokuapp.com/answers")
 
       .then((response) => {
         const data = response.data;
@@ -208,22 +208,3 @@ const Answers = () => {
 
 export default Answers;
 
-// <p>{answer.дата} --- {answer.достижение}</p>
-// <p>{answer.дата} --- {answer.торможение}</p>
-// <p>{answer.дата} --- {answer.откладывание}</p>
-// <p>{answer.дата} --- {answer.цель}</p>
-// <p>{answer.дата} --- {answer.благодарность}</p>
-// <p>{answer.дата} --- {answer.впечатление}</p>
-// <p>{answer.дата} --- {answer.помехи}</p>
-// <p>{answer.дата} --- {answer.цели}</p>
-// <p>{answer.дата} --- {answer.помощь}</p>
-// <p>{answer.дата} --- {answer.возможности}</p>
-// <p>{answer.дата} --- {answer.здоровье}</p>
-// <p>{answer.дата} --- {answer.шаги}</p>
-// <p>{answer.дата} --- {answer.страхи}</p>
-// <p>{answer.дата} --- {answer.решения}</p>
-// <p>{answer.дата} --- {answer.встречи}</p>
-// <p>{answer.дата} --- {answer.навыки}</p>
-// <p>{answer.дата} --- {answer.назад}</p>
-// <p>{answer.дата} --- {answer.бесполезное}</p>
-// <p>{answer.дата} --- {answer.важное}</p>
