@@ -41,10 +41,10 @@ const Answers = () => {
   const [toggle, setToggle] = useState(true);
 
   return (
-    <>
+    <div className="answers">
       <h1>ТВОИ ОТВЕТЫ</h1>
 
-      <div onClick={() => setToggle(!toggle)}>
+      {/* <div onClick={() => setToggle(!toggle)}>
         <h2>{questions[0]}</h2>
         {toggle && (
           <ul>
@@ -56,6 +56,13 @@ const Answers = () => {
           </ul>
         )}
       </div>
+      <hr /> */}
+      <h2>{questions[0]}</h2>
+      {answers.map((answer, index) => (
+        <p>
+          {answer.дата} --- {answer.новое}
+        </p>
+      ))}
       <hr />
 
       <h2>{questions[1]}</h2>
@@ -202,7 +209,7 @@ const Answers = () => {
         </p>
       ))}
       <hr />
-    </>
+    </div>
   );
 };
 
