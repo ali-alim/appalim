@@ -15,7 +15,7 @@ form h1{
     margin: 10px;
 }
 
-input{
+input, textarea{
     width: 80%;
     padding: 15px;
     color: black;
@@ -85,4 +85,37 @@ strong{
     flex-direction: column;
     border: 1px solid blue;
     border-radius: 50%;
+}
+
+.home{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    color:blue
+}
+h2{
+    color:blueviolet
+}
+.answers_answer{
+    color:deeppink;
+}
+
+.answers_date{
+    color:gray;
+    font-size: 14px;
+    font-style: italic;
+}
+
+@media screen and (max-width:600px) {
+    ::placeholder {
+        height: 100px;
+        width: 90%;
+        color: blue;
+        opacity: 0.3;
+        font-size: 15px;
+    }
 }

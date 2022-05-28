@@ -50,7 +50,7 @@ const Answers = () => {
           <ul>
             {answers.map((answer, index) => (
               <li>
-                {answer.дата} --- {answer.новое}
+                <span></span> --- <span className="answers_answer">{answer.новое}</span>
               </li>
             ))}
           </ul>

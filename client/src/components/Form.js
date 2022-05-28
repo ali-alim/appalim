@@ -78,6 +78,28 @@ const Form = ({ usersInfo, setUsersInfo }) => {
   const бесполезное = watch("бесполезное");
   const важное = watch("важное");
 
+  const questions = [
+    "Что нового ты узнал и что из этого внедрил?",
+    "Твое самое большое достижение за неделю?",
+    "Где ты тормозил, тратил время впустую, бездействовал?",
+    "Что из того, что ты откладываешь нужно сделать на следующей неделе?",
+    "Какую цель ты хочешь достигнуть на следующей неделе и что нужно для этого сделать?",
+    "Есть ли кто-то, кого я хочу поблагодарить?",
+    "Самое сильное впечатление на этой неделе?",
+    "Что мешает мне двигаться вперед и как убрать эти помехи?",
+    "Твои главные 3 цели на 3 года?",
+    "Есть ли кто-то, кому я могу помочь?",
+    "Какие возможности есть в твоем распоряжении?",
+    "Что ты сделал для поддержания себя в форме и отличного здоровья?",
+    "Какие шаги продвинут тебя вперед к целям и что ты можешь сделать уже сейчас?",
+    "Чего ты боишься - твои страхи - и что сделать для их уменьшения?",
+    "Решение какого одного дела продвинет тебя максимально вперед?",
+    "Кто может тебе помочь - с кем ты хочешь встретиться?",
+    "Развитие какого одного навыка продвинет тебя максимально вперед?",
+    "Что из того что ты делаешь тянет тебя назад?",
+    "Если бы следующая неделя была бы последней в твоей жизни, какое бы одно дело ты сделал уже завтра?",
+  ];
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -87,127 +109,124 @@ const Form = ({ usersInfo, setUsersInfo }) => {
         <br />
 
         {бесполезное && (
-          <input
-            placeholder="Если бы следующая неделя была бы последней в твоей жизни, какое бы одно дело ты сделал уже завтра?"
+          <textarea
+            placeholder={questions[18]}
             {...register("важное", { required: true })}
           />
         )}
 
         {назад && (
-          <input
-            placeholder="Что из того что ты делаешь тянет тебя назад?"
+          <textarea
+            placeholder={questions[17]}
             {...register("бесполезное", { required: true })}
           />
         )}
 
         {встречи && (
-          <input
-            placeholder="Развитие какого одного навыка продвинет тебя максимально вперед?"
+          <textarea
+            placeholder={questions[16]}
             {...register("навыки", { required: true })}
           />
         )}
 
         {решения && (
-          <input
-            placeholder="Кто может тебе помочь - с кем ты хочешь встретиться?"
+          <textarea
+            placeholder={questions[15]}
             {...register("встречи", { required: true })}
           />
         )}
 
         {страхи && (
-          <input
-            placeholder="Решение какого одного дела продвинет тебя максимально вперед?"
+          <textarea
+            placeholder={questions[14]}
             {...register("решения", { required: true })}
           />
         )}
         {шаги && (
-          <input
-            placeholder="Чего ты боишься - твои страхи - и что сделать для их уменьшения?"
+          <textarea
+            placeholder={questions[13]}
             {...register("страхи", { required: true })}
           />
         )}
 
         {здоровье && (
-          <input
-            placeholder="Какие шаги продвинут тебя вперед к целям и что ты можешь сделать уже сейчас?"
+          <textarea
+            placeholder={questions[12]}
             {...register("шаги", { required: true })}
           />
         )}
 
         {возможности && (
-          <input
-            placeholder="Что ты сделал для поддержания себя в форме и отличного здоровья?"
+          <textarea
+            placeholder={questions[11]}
             {...register("здоровье", { required: true })}
           />
         )}
 
         {помощь && (
-          <input
-            placeholder="Какие возможности есть в твоем распоряжении?"
+          <textarea
+            placeholder={questions[10]}
             {...register("возможности", { required: true })}
           />
         )}
 
         {цели && (
-          <input
-            placeholder="Есть ли кто-то, кому я могу помочь?"
+          <textarea
+            placeholder={questions[9]}
             {...register("помощь", { required: true })}
           />
         )}
         {помехи && (
-          <input
-            placeholder="Твои главные 3 цели на 3 года?"
+          <textarea
+            placeholder={questions[8]}
             {...register("цели", { required: true })}
           />
         )}
         {впечатление && (
-          <input
-            placeholder="Что мешает мне двигаться вперед и как убрать эти помехи?"
+          <textarea
+            placeholder={questions[7]}
             {...register("помехи", { required: true })}
           />
         )}
         {благодарность && (
-          <input
-            placeholder="Самое сильное впечатление на этой неделе?"
+          <textarea
+            placeholder={questions[6]}
             {...register("впечатление", { required: true })}
           />
         )}
         {цель && (
-          <input
-            placeholder="Есть ли кто-то, кого я хочу поблагодарить?"
+          <textarea
+            placeholder={questions[5]}
             {...register("благодарность", { required: true })}
           />
         )}
         {откладывание && (
-          <input
-            placeholder="Какую цель ты хочешь достигнуть на следующей неделе и что нужно для этого сделать?"
+          <textarea
+            placeholder={questions[4]}
             {...register("цель", { required: true })}
           />
         )}
         {торможение && (
-          <input
-            placeholder="Что из того, что ты откладываешь нужно сделать на следующей неделе?"
+          <textarea
+            placeholder={questions[3]}
             {...register("откладывание", { required: true })}
           />
         )}
         {достижение && (
-          <input
-            placeholder="Где ты тормозил, тратил время впустую, бездействовал?"
+          <textarea
+            placeholder={questions[2]}
             {...register("торможение", { required: true })}
           />
         )}
 
         {новое && (
-          <input
-            placeholder="Твое самое большое достижение за неделю?"
+          <textarea
+            placeholder={questions[1]}
             {...register("достижение", { required: true })}
           />
         )}
 
-        <input
-          placeholder="Что нового ты узнал и что из этого внедрил?"
-          {...register("новое")}
-        />
+        <textarea placeholder={questions[0]} {...register("новое")} />
 
         <br />
       </form>
@@ -216,77 +235,3 @@ const Form = ({ usersInfo, setUsersInfo }) => {
 };
 
 export default Form;
-
-/* <input placeholder="გვარი" {...register("გვარი", { required: true })} />
-        {errors.გვარი && <strong>&nbsp; * სავალდებულო ველი</strong>}
-        {USER_EXISTS === false ? (
-          <div>
-            <input
-              placeholder="პირადი ნომერი"
-              {...register(
-                "პირადი_ნომერი",
-
-                {
-                  required: true,
-                  minLength: 11,
-                  onChange: (e) => userExists(e),
-                }
-              )}
-            />
-            {errors.პირადი_ნომერი && <strong>მინიმუმ 11 სიმბოლო</strong>}
-          </div>
-        ) : (
-          <div>
-            <input
-              placeholder="პირადი ნომერი"
-              {...register(
-                "პირადი_ნომერი",
-                {
-                  onChange: (e) => userExists(e),
-                },
-                { required: true, minLength: 11 }
-              )}
-            />
-            <span>
-              <strong>
-                &nbsp;* მომხმარებელი ასეთი პირადი ნომრით უკვე დამატებულია
-              </strong>{" "}
-            </span>
-          </div>
-        )}
-        <select {...register("სქესი", { required: true })}>
-          <option value="">სქესი</option>
-          <option value="მამრობითი">მამრობითი</option>
-          <option value="მდედრობითი">მდედრობითი</option>
-        </select>
-        {errors.სქესი && <strong>&nbsp; * სავალდებულო ველი</strong>}
-        <div className="date_field">
-         
-    <Controller
-        control={control}
-        name="დაბადების_თარიღი"
-        render={({ field }) => (
-          <DatePicker
-          maxDate={today}
-            placeholderText="Select date"
-            onChange={(date) => field.onChange(date)}
-            selected={field.value}
-          />
-        )}
-      />
-
-          {errors.დაბადების_თარიღი && (
-            <strong>&nbsp; * სავალდებულო ველი</strong>
-          )}
-        </div>
-        <input
-          placeholder="დაბადების_ადგილი"
-          {...register("დაბადების_ადგილი", { required: true })}
-        />
-        {errors.დაბადების_ადგილი && <strong>&nbsp; * სავალდებულო ველი</strong>}{" "}
-        <input
-          placeholder="მისამართი"
-          {...register("მისამართი", { required: true })}
-        />
-        {errors.მისამართი && <strong>&nbsp; * სავალდებულო ველი</strong>}
-        <br />*/
