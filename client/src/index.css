@@ -118,4 +118,7 @@ h2{
         opacity: 0.3;
         font-size: 15px;
     }
+    textarea{
+        height: 150px;
+    }
 }
