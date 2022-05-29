@@ -5,7 +5,10 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const Form = ({ usersInfo, setUsersInfo }) => {
+const Form = () => {
+
+  const [usersInfo, setUsersInfo] = useState([]);
+
   const navigate = useNavigate();
 
   const { register, handleSubmit, watch } = useForm({ mode: "all" });
@@ -34,8 +37,7 @@ const Form = ({ usersInfo, setUsersInfo }) => {
       встречи,
       навыки,
       бесполезное,
-      важное,
-      секрет,
+      важное
     };
     setUsersInfo([...usersInfo, newList]);
 

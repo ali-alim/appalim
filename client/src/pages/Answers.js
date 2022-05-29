@@ -48,19 +48,48 @@ const Answers = () => {
       <h1>ТВОИ ОТВЕТЫ</h1>
 
       {!isClicked && (
-              <input
-              type="text"
-              placeholder="what is your name?"
-              name="username"
-              onChange={(e) => setUsername(e.target.value)}
-            />
+        <input
+          type="text"
+          placeholder="what is your name?"
+          name="username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
       )}
-      <button id="new_user_button" onClick={()=>setIsClicked(!isClicked)}>
+      <button id="new_user_button" onClick={() => setIsClicked(!isClicked)}>
         Name
       </button>
 
-      {answers.map((answer) =>
-        answer.новое === username ? (
+      {/* {username &&
+        answers
+          .filter((answer) => answer.новое.includes(username))
+          .map((filteredAnswer, index) => (
+            <div key={index}>
+              <li>{filteredAnswer.дата}</li>
+              <li>{filteredAnswer.новое}</li>
+              <li>{filteredAnswer.достижение}</li>
+              <li>{filteredAnswer.торможение}</li>
+              <li>{filteredAnswer.откладывание}</li>
+              <li>{filteredAnswer.цель}</li>
+              <li>{filteredAnswer.благодарность}</li>
+              <li>{filteredAnswer.впечатление}</li>
+              <li>{filteredAnswer.помехи}</li>
+              <li>{filteredAnswer.цели}</li>
+              <li>{filteredAnswer.помощь}</li>
+              <li>{filteredAnswer.возможности}</li>
+              <li>{filteredAnswer.здоровье}</li>
+              <li>{filteredAnswer.шаги}</li>
+              <li>{filteredAnswer.страхи}</li>
+              <li>{filteredAnswer.решения}</li>
+              <li>{filteredAnswer.встречи}</li>
+              <li>{filteredAnswer.навыки}</li>
+              <li>{filteredAnswer.бесполезное}</li>
+              <li>{filteredAnswer.важное}</li>
+            </div>
+))} */}
+              
+      {answers.filter((answer) => answer.новое.includes('Lika')) ?   
+        
+         (
           <>
             <h2>{questions[0]}</h2>
             {answers.map((answer, index) => (
@@ -86,145 +115,144 @@ const Answers = () => {
               </p>
             ))}
             <hr />
-
-            <h2>{questions[3]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.откладывание}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[4]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.цель}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[5]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.благодарность}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[6]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.впечатление}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[7]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.помехи}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[8]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.цели}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[9]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.помощь}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[10]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.возможности}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[11]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.здоровье}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[12]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.шаги}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[13]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.страхи}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[14]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.решения}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[15]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.встречи}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[16]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.навыки}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[17]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.бесполезное}
-              </p>
-            ))}
-            <hr />
-
-            <h2>{questions[18]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.важное}
-              </p>
-            ))}
-            <hr />
           </>
         ) : (
-          <div>
-            {" "}
-            Sorry, You are not authorized. Please take the questionnaire and
-            don't forget your name{" "}
-          </div>
+          <div>Fucked off </div>
         )
-      )}
+        }
     </div>
   );
 };
 
 export default Answers;
+
+
+
+// ADD TO ANSWERS ARRAY
+{/* <h2>{questions[3]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.откладывание}
+  </p>
+))}
+<hr />
+
+<h2>{questions[4]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.цель}
+  </p>
+))}
+<hr />
+
+<h2>{questions[5]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.благодарность}
+  </p>
+))}
+<hr />
+
+<h2>{questions[6]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.впечатление}
+  </p>
+))}
+<hr />
+
+<h2>{questions[7]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.помехи}
+  </p>
+))}
+<hr />
+
+<h2>{questions[8]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.цели}
+  </p>
+))}
+<hr />
+
+<h2>{questions[9]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.помощь}
+  </p>
+))}
+<hr />
+
+<h2>{questions[10]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.возможности}
+  </p>
+))}
+<hr />
+
+<h2>{questions[11]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.здоровье}
+  </p>
+))}
+<hr />
+
+<h2>{questions[12]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.шаги}
+  </p>
+))}
+<hr />
+
+<h2>{questions[13]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.страхи}
+  </p>
+))}
+<hr />
+
+<h2>{questions[14]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.решения}
+  </p>
+))}
+<hr />
+
+<h2>{questions[15]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.встречи}
+  </p>
+))}
+<hr />
+
+<h2>{questions[16]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.навыки}
+  </p>
+))}
+<hr />
+
+<h2>{questions[17]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.бесполезное}
+  </p>
+))}
+<hr />
+
+<h2>{questions[18]}</h2>
+{answers.map((answer, index) => (
+  <p>
+    {answer.дата} --- {answer.важное}
+  </p>
+))}
+<hr /> */}
