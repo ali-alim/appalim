@@ -29,13 +29,12 @@ const Visits = () => {
   }
 
   return (
-    <div>
-      <h1>Your future doctor visits are below</h1>
+    <div className='visits_page'>
       {myVisits.map((myvisit,index) => (
         <li key={index}>{myvisit.visit_date} - {myvisit.visit_name} - <button id="delete_visit_button" onClick={() => deleteVisit(myvisit._id)}>delete</button></li>
       ))}
     <Link to="/visit">
-      <button>create new visit</button>
+    <button className="go_to_component">create new visit</button>
     </Link>
     </div>
   )

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const API_URL = "http://appalim.herokuapp.com"
+const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000"
 
 const Dream = () => {
@@ -41,7 +41,7 @@ const Dream = () => {
       .catch(() => {
         console.log("Internal server error");
       });
-      reset();
+    reset();
     navigate("/dream");
   };
 
@@ -50,22 +50,22 @@ const Dream = () => {
 
   return (
     <div className="dream">
-      {console.log(dreamList)}
+      <div className="two_buttons">
+        <Link to="/dreams">
+          <button className="go_to_component">Go to my dreams</button>
+        </Link>
+        <Link to="/">
+          <button className="go_to_mainpage">Go to my main page</button>
+        </Link>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="submit" value="Добавить" />
         <br />
         <textarea
           placeholder="Запиши сюда мечту ..."
           {...register("dream_name", { required: true })}
         />
+        <input type="submit" value="Добавить" />
       </form>
-      <Link to="/dreams">
-          <button className="go_to_component">Go to my dreams</button>
-      </Link>
-      <br />
-      <Link to="/">
-          <button>Go to my main page</button>
-      </Link>
     </div>
   );
 };

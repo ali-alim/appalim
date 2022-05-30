@@ -29,12 +29,14 @@ const Tasks = () => {
 
   const doneTask = (index) => {
     const edited = document.getElementById(index);
-    edited.style.lineThrough = 'line-through'
-  }
+    edited.style.lineThrough = "line-through";
+  };
 
   return (
-    <div>
-      <h1>Your tasks are below, complete them ASAP</h1>
+    <div className="tasks_page">
+      <Link to="/">
+        <button className="go_to_mainpage">Go to my main page</button>
+      </Link>
       {myTasks.map((mytask, index) => (
         <li key={index}>
           {mytask.task_date} - {mytask.task_name} -{" "}
@@ -44,14 +46,13 @@ const Tasks = () => {
           >
             delete
           </button>
-          <button
-            className="done_button"
-            onClick={() => doneTask(index)}
-          >done</button>
+          <button className="done_button" onClick={() => doneTask(index)}>
+            done
+          </button>
         </li>
       ))}
       <Link to="/task">
-        <button>create new tasks</button>
+        <button className="go_to_component">Create new task</button>
       </Link>
     </div>
   );

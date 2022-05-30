@@ -1,13 +1,11 @@
-import React, {useState,useEffect} from 'react'
-import {Link} from "react-router-dom"
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-const API_URL = "http://appalim.herokuapp.com"
-
+const API_URL = "http://appalim.herokuapp.com";
 
 const Dreams = () => {
-
-  const [myDreams, setMyDreams] = useState([])
+  const [myDreams, setMyDreams] = useState([]);
 
   useEffect(() => {
     axios
@@ -24,21 +22,32 @@ const Dreams = () => {
   }, [myDreams]);
 
   const deleteDream = (id) => {
-    axios.delete(`${API_URL}/dreams/${id}`, id)
+    axios.delete(`${API_URL}/dreams/${id}`, id);
     // axios.delete(`${API_URL}/${id}`, id)
-  }
+  };
 
   return (
-    <div>
-      <h1>Your dreams are below, realize them ASAP</h1>
-      {myDreams.map((mydream,index) => (
-        <li key={index}>{mydream.dream_date} - {mydream.dream_name} - <button id="delete_dream_button" onClick={() => deleteDream(mydream._id)}>delete</button></li>
+    <div className="dreams_page">
+      <Link to="/">
+        <button className="go_to_mainpage">Go to my main page</button>
+      </Link>
+      {myDreams.map((mydream, index) => (
+        <li key={index}>
+          {mydream.dream_date} - {mydream.dream_name} -{" "}
+          <button
+            id="delete_dream_button"
+            onClick={() => deleteDream(mydream._id)}
+          >
+            delete
+          </button>
+        </li>
       ))}
-    <Link to="/dream">
-      <button>create new dream</button>
-    </Link>
+      <br />
+      <Link to="/dream">
+        <button className="go_to_component">create new dream</button>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Dreams
+export default Dreams;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const API_URL = "http://appalim.herokuapp.com"
+const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000"
 
 const Task = () => {
@@ -41,7 +41,7 @@ const Task = () => {
       .catch(() => {
         console.log("Internal server error");
       });
-      reset();
+    reset();
     navigate("/task");
   };
 
@@ -50,22 +50,24 @@ const Task = () => {
 
   return (
     <div className="task">
-      {console.log(taskList)}
+      <div className="two_buttons">
+        <Link to="/tasks">
+          <button className="go_to_component">Go to my tasks</button>
+        </Link>
+        <Link to="/">
+          <button className="go_to_mainpage">Go to my main page</button>
+        </Link>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="submit" value="Добавить" />
         <br />
         <textarea
           placeholder="Введи задачу ..."
           {...register("task_name", { required: true })}
         />
+        <input type="submit" value="Добавить" />
       </form>
-      <Link to="/tasks">
-          <button className="go_to_component">Go to my tasks</button>
-      </Link>
+
       <br />
-      <Link to="/">
-          <button>Go to my main page</button>
-      </Link>
     </div>
   );
 };

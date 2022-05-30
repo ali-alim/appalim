@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const API_URL = "http://appalim.herokuapp.com"
+const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000/answers"
 
 const Form = () => {
-
   const [usersInfo, setUsersInfo] = useState([]);
 
   const navigate = useNavigate();
@@ -40,7 +39,7 @@ const Form = () => {
       встречи,
       навыки,
       бесполезное,
-      важное
+      важное,
     };
     setUsersInfo([...usersInfo, newList]);
 
@@ -108,12 +107,18 @@ const Form = () => {
     "Если бы следующая неделя была бы последней в твоей жизни, какое бы одно дело ты сделал уже завтра?",
   ];
 
-
   return (
     <div className="form">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>ВОПРОСЫ</h1>
+      <div className="two_buttons">
+        <Link to="/answers">
+          <button className="go_to_component">Go to my answers</button>
+        </Link>
+        <Link to="/">
+          <button className="go_to_mainpage">Go to my main page</button>
+        </Link>
+      </div>
 
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input type="submit" value="Сохранить" />
         <br />
 
@@ -235,12 +240,10 @@ const Form = () => {
           />
         )}
 
-          <textarea
-            placeholder={questions[0]}
-            {...register("новое", { required: true })}
-          />
-
-
+        <textarea
+          placeholder={questions[0]}
+          {...register("новое", { required: true })}
+        />
 
         <br />
       </form>

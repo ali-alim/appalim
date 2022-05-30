@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const API_URL = "http://appalim.herokuapp.com"
+const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000/answers"
 const Answers = () => {
   const [answers, setAnswers] = useState([]);
@@ -41,27 +42,11 @@ const Answers = () => {
       });
   }, []);
 
-  // const [toggle, setToggle] = useState(true);
-  const [username, setUsername] = useState("");
-
-  const [isClicked, setIsClicked] = useState(false);
-
   return (
-    <div>
-      <h1>ТВОИ ОТВЕТЫ</h1>
-
-      {!isClicked && (
-        <input
-          type="text"
-          placeholder="what is your name?"
-          name="username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      )}
-      <button id="new_user_button" onClick={() => setIsClicked(!isClicked)}>
-        Name
-      </button>
-
+    <div className="answers_page">
+      <Link to="/">
+        <button className="go_to_mainpage">Go to my main page</button>
+      </Link>
       {/* {username &&
         answers
           .filter((answer) => answer.новое.includes(username))
@@ -89,50 +74,46 @@ const Answers = () => {
               <li>{filteredAnswer.важное}</li>
             </div>
 ))} */}
-              
-      {answers.filter((answer) => answer.новое.includes('Lika')) ?   
-        
-         (
-          <>
-            <h2>{questions[0]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.новое}
-              </p>
-            ))}
-            <hr />
 
-            <h2>{questions[1]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.достижение}
-              </p>
-            ))}
+      {answers.filter((answer) => answer.новое.includes("Lika")) ? (
+        <>
+          <h2>{questions[0]}</h2>
+          {answers.map((answer, index) => (
+            <p>
+              {answer.дата} --- {answer.новое}
+            </p>
+          ))}
+          <hr />
 
-            <hr />
+          <h2>{questions[1]}</h2>
+          {answers.map((answer, index) => (
+            <p>
+              {answer.дата} --- {answer.достижение}
+            </p>
+          ))}
 
-            <h2>{questions[2]}</h2>
-            {answers.map((answer, index) => (
-              <p>
-                {answer.дата} --- {answer.торможение}
-              </p>
-            ))}
-            <hr />
-          </>
-        ) : (
-          <div>Fucked off </div>
-        )
-        }
+          <hr />
+
+          <h2>{questions[2]}</h2>
+          {answers.map((answer, index) => (
+            <p>
+              {answer.дата} --- {answer.торможение}
+            </p>
+          ))}
+          <hr />
+        </>
+      ) : (
+        <div>Fucked off </div>
+      )}
     </div>
   );
 };
 
 export default Answers;
 
-
-
 // ADD TO ANSWERS ARRAY
-{/* <h2>{questions[3]}</h2>
+{
+  /* <h2>{questions[3]}</h2>
 {answers.map((answer, index) => (
   <p>
     {answer.дата} --- {answer.откладывание}
@@ -258,4 +239,5 @@ export default Answers;
     {answer.дата} --- {answer.важное}
   </p>
 ))}
-<hr /> */}
+<hr /> */
+}

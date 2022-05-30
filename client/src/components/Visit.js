@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const API_URL = "http://appalim.herokuapp.com"
+const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000"
 
 const Visit = () => {
@@ -41,7 +41,7 @@ const Visit = () => {
       .catch(() => {
         console.log("Internal server error");
       });
-      reset();
+    reset();
     navigate("/visit");
   };
 
@@ -50,22 +50,23 @@ const Visit = () => {
 
   return (
     <div className="visit">
-      {console.log(visitList)}
+      <div className="two_buttons">
+        <Link to="/visits">
+          <button className="go_to_component">Go to my visits</button>
+        </Link>
+        <Link to="/">
+          <button className="go_to_mainpage">Go to my main page</button>
+        </Link>
+      </div>
+
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="submit" value="Добавить" />
         <br />
         <textarea
           placeholder="Добавь визит ..."
           {...register("visit_name", { required: true })}
         />
+        <input type="submit" value="Добавить" />
       </form>
-      <Link to="/visits">
-          <button className="go_to_component">Go to my visits</button>
-      </Link>
-      <br />
-      <Link to="/">
-          <button>Go to my main page</button>
-      </Link>
     </div>
   );
 };

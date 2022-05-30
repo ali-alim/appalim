@@ -161,19 +161,29 @@ answers {
 }
 
 #delete_task_button {
-  background-color: #030e12;
-  color: #5bccf6;
-  border-color: transparent;
-  border-radius: 10px;
-  padding: 5px;
+  background-color: var(--yellow-color);
+  color: deeppink;
+  border-radius: 5px;
+  padding: 2px;
+  border:1px solid deeppink;
+  margin: 2px;
 }
 
+#delete_visit_button{
+  background-color: var(--yellow-color);
+  color: deeppink;
+  border-radius: 5px;
+  padding: 2px;
+  border:1px solid deeppink;
+  margin: 2px;
+}
 #delete_dream_button{
-  background-color: #030e12;
-  color: #5bccf6;
-  border-color: transparent;
-  border-radius: 10px;
-  padding: 5px;
+  background-color: var(--yellow-color);
+  color: deeppink;
+  border-radius: 5px;
+  padding: 2px;
+  border:1px solid deeppink;
+  margin: 2px;
 }
 
 #set_new_dream{
@@ -216,22 +226,44 @@ answers {
   font-size: 15px;
 }
 
-#delete_visit_button{
-  background-color: #030e12;
-  color: #5bccf6;
-  border-color: transparent;
-  border-radius: 10px;
-  padding: 5px;
+
+.two_buttons{
+  max-width: 350px;
+  display: flex;
+  justify-content:space-around;
 }
+
 
 .go_to_component{
-  background-color: #030e12;
-  color: #5bccf6;
+  background-color: var(--blue-color);
+  color: var(--black-color);
   border-color: transparent;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
+  margin: 10px;
+  /* display: flex;
+  width: 100%; */
 }
 
+.go_to_mainpage{
+  background-color: var(--green-color);
+  color: var(--black-color);
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  /* display: flex;
+  width: 100%; */
+}
+
+.done_button{
+  background-color: var(--blue-color);
+  color: var(--black-color);
+  border-radius: 5px;
+  padding: 2px;
+  border:1px solid var(--blue-color);
+  margin: 2px;
+}
 
 /* >>>>>>>>>>-------BUTTONS - ID & CLASSNAME-------<<<<<<<<< */
 
@@ -303,6 +335,11 @@ answers {
   border-radius: 25px;
   margin: 10px;
 
+}
+
+
+.tasks_page, .dreams_page, .visits_page, .answers_page{
+  margin: 10px;
 }
 
 /* >>>>---------------- COMPONENTS - DIVS - ENDED -------------<<<< */
