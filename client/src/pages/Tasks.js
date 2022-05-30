@@ -1,53 +1,12 @@
-import React, { useState, useEffect } from "react";
-import {Link} from 'react-router-dom'
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { format } from "date-fns";
-import axios from "axios";
-let today = new Date();
+import React, {useState,useEffect} from 'react'
+import {Link} from "react-router-dom"
+import axios from 'axios'
+import { Navigate } from 'react-router-dom';
 
 const Tasks = () => {
-  const [taskList, setTaskList] = useState([]);
 
-  const [tasks, setTasks] = useState([]);
 
-  const navigate = useNavigate();
-
-  const { register, handleSubmit, watch, reset } = useForm({ mode: "all" });
-
-  const onSubmit = (data) => {
-    const formattedDate = format(new Date(today), "dd/MM/yyyy");
-    task_date = formattedDate.toString();
-
-    const task = {
-      task_date,
-      task_name,
-    };
-    setTaskList([...taskList, task]);
-
-    const payload = {
-      ...task,
-    };
-
-    reset();
-
-    axios({
-      url: "http://appalim.herokuapp.com/tasks/",
-      method: "POST",
-      data: payload,
-    })
-      .then(() => {
-        console.log("Data has been sent to the server");
-      })
-      .catch(() => {
-        console.log("Internal server error");
-      });
-
-    navigate("/tasks");
-  };
-
-  let task_date = watch("task_date");
-  const task_name = watch("task_name");
+  const [myTasks, setMyTasks] = useState([])
 
   useEffect(() => {
     axios
@@ -55,53 +14,28 @@ const Tasks = () => {
 
       .then((response) => {
         const data = response.data;
-        setTasks(data);
+        setMyTasks(data);
       })
       .catch(() => {
         alert("Error retrieving data");
       });
-  }, [onSubmit]);
+  }, [myTasks]);
 
-  const deleteZTask = (id) => {
-    const payload = id;
-    axios({
-      url: `http://appalim.herokuapp.com/tasks/${id}`,
-      method: "DELETE",
-      data: payload,
-    });
-  };
+  const deleteTask = (id) => {
+    axios.delete(`http://appalim.herokuapp.com/tasks/${id}`, id)
+  }
 
   return (
-    <>
-      <Link to="/"><button>Main Menu</button></Link>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="submit" value="Добавить" />
-        <br />
-        <textarea
-          placeholder="Введи задачу ..."
-          {...register("task_name", { required: true })}
-        />
-      </form>
+    <div>
+      <h1>Your tasks are below, complete them ASAP</h1>
+      {myTasks.map((mytask,index) => (
+        <li key={index}>{mytask.task_date} - {mytask.task_name} - <button id="delete_task_button" onClick={() => deleteTask(mytask._id)}>delete</button></li>
+      ))}
+    <Link to="/task">
+      <button>create new tasks</button>
+    </Link>
+    </div>
+  )
+}
 
-      <h1>ТВОИ ЗАДАЧИ</h1>
-      <div className="tasks_list">
-        {tasks.map((task, index) => (
-          <>
-            <li key={index}>
-              {task.task_date} - {task.task_name} -{" "}
-              <button
-                id="delete_task_button"
-                onClick={() => deleteZTask(task._id)}
-              >
-                сделано
-              </button>
-            </li>
-            <hr />
-          </>
-        ))}
-      </div>
-    </>
-  );
-};
-
-export default Tasks;
+export default Tasks

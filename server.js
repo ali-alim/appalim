@@ -21,6 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+app.use("/auth", require('./routes/auth'));
+app.use("/tasks", require("./routes/tasks"));
 app.use("/answers", require("./routes/answers"));
 
 if (process.env.NODE_ENV === "production") {

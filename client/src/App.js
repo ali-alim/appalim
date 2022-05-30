@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import Form from "./components/Form";
+import Task from "./components/Task";
 import Answers from "./pages/Answers";
 import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
@@ -12,6 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/task" element={<Task />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route
           path="/form"

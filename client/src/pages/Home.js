@@ -17,6 +17,9 @@ const Home = () => {
 
       <div className="tasks">
         TASKS
+        <Link to="/task">
+          <button id="set_new_task">Set Tasks</button>
+        </Link>
         <Link to="/tasks">
           <button id="tasks_button">Go to my tasks</button>
         </Link>
