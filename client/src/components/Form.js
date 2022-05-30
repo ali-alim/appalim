@@ -5,8 +5,8 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-// const API_URL = "http://appalim.herokuapp.com/answers"
-const API_URL = "http://localhost:5000/answers"
+const API_URL = "http://appalim.herokuapp.com"
+// const API_URL = "http://localhost:5000/answers"
 
 const Form = () => {
 
@@ -49,8 +49,8 @@ const Form = () => {
     };
 
     axios({
-      url: "/answers",
-      // url: API_URL,
+      // url: "/answers",
+      url: API_URL + "/answers",
       method: "POST",
       data: payload,
     })

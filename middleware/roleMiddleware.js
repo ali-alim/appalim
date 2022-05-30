@@ -7,7 +7,7 @@ return function (req, res, next) {
     next();
   }
   try {
-    const token = req.headers.authorization.split(' ')[1];
+    const token = req.headers.authorization.split(' ')[1]
     if (!token) {
       return res.status(403).json({ message: "user is not authorized" });
     }
@@ -22,8 +22,10 @@ return function (req, res, next) {
       return res.status(403).json({message:"you do not have access"})
     }
     next();
-  } catch (e) {
+  }
+   catch (e) {
     console.log(e);
     return res.status(403).json({ message: "user is not authorized" });
   }
-};
+}
+}

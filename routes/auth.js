@@ -3,7 +3,7 @@ const router = express.Router();
 const { registration, login, getUsers } = require("./../controllers/auth");
 const { check } = require("express-validator");
 const authMiddleware = require('./../middleware/authMiddleware')
-const role = require('./../middleware/roleMiddleware')
+const roleMiddleware = require('./../middleware/roleMiddleware')
 
 router.post("/registration", [
     check('username', 'username can not be empty').notEmpty(),
