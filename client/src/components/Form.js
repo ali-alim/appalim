@@ -46,7 +46,7 @@ const Form = () => {
     };
 
     axios({
-      url: "http://appalim.herokuapp.com/answers/",
+      url: "/answers/",
       method: "POST",
       data: payload,
     })

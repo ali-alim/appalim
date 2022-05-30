@@ -18,10 +18,60 @@ const Home = () => {
       <div className="tasks">
         TASKS
         <Link to="/task">
-          <button id="set_new_task">Set Tasks</button>
+          <button id="set_new_task">ДОБАВИТЬ ЗАДАЧУ</button>
         </Link>
         <Link to="/tasks">
-          <button id="tasks_button">Go to my tasks</button>
+          <button id="tasks_button">ПЕРЕЙТИ К ЗАДАЧАМ</button>
+        </Link>
+      </div>
+
+      <div className="tasks">
+        TASKS
+        <Link to="/task">
+          <button id="set_new_task">ДОБАВИТЬ ЗАДАЧУ</button>
+        </Link>
+        <Link to="/tasks">
+          <button id="tasks_button">ПЕРЕЙТИ К ЗАДАЧАМ</button>
+        </Link>
+      </div>
+
+      <div className="tasks">
+        TASKS
+        <Link to="/task">
+          <button id="set_new_task">ДОБАВИТЬ ЗАДАЧУ</button>
+        </Link>
+        <Link to="/tasks">
+          <button id="tasks_button">ПЕРЕЙТИ К ЗАДАЧАМ</button>
+        </Link>
+      </div>
+
+      <div className="tasks">
+        TASKS
+        <Link to="/task">
+          <button id="set_new_task">ДОБАВИТЬ ЗАДАЧУ</button>
+        </Link>
+        <Link to="/tasks">
+          <button id="tasks_button">ПЕРЕЙТИ К ЗАДАЧАМ</button>
+        </Link>
+      </div>
+
+      <div className="dreams">
+        TASKS
+        <Link to="/task">
+          <button id="set_new_task">ДОБАВИТЬ ЗАДАЧУ</button>
+        </Link>
+        <Link to="/tasks">
+          <button id="tasks_button">ПЕРЕЙТИ К ЗАДАЧАМ</button>
+        </Link>
+      </div>
+
+      <div className="tasks">
+        TASKS
+        <Link to="/task">
+          <button id="set_new_task">ДОБАВИТЬ ЗАДАЧУ</button>
+        </Link>
+        <Link to="/tasks">
+          <button id="tasks_button">ПЕРЕЙТИ К ЗАДАЧАМ</button>
         </Link>
       </div>
 

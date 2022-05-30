@@ -27,7 +27,7 @@ const Task = () => {
     };
 
     axios({
-      url: "http://appalim.herokuapp.com/tasks/",
+      url: "/tasks/",
       method: "POST",
       data: payload,
     })
