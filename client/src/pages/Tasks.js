@@ -1,7 +1,9 @@
 import React, {useState,useEffect} from 'react'
 import {Link} from "react-router-dom"
 import axios from 'axios'
-import { Navigate } from 'react-router-dom';
+
+// const API_URL = "http://appalim.herokuapp.com/answers"
+const API_URL = "http://localhost:5000/answers"
 
 const Tasks = () => {
 
@@ -10,7 +12,8 @@ const Tasks = () => {
 
   useEffect(() => {
     axios
-      .get("http://appalim.herokuapp.com/tasks")
+      .get("/tasks")
+      // .get(API_URL + "/tasks")
 
       .then((response) => {
         const data = response.data;
@@ -22,7 +25,8 @@ const Tasks = () => {
   }, [myTasks]);
 
   const deleteTask = (id) => {
-    axios.delete(`http://appalim.herokuapp.com/tasks/${id}`, id)
+    axios.delete(`tasks/${id}`, id)
+    // axios.delete(`${API_URL}/${id}`, id)
   }
 
   return (

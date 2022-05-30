@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+// const API_URL = "http://appalim.herokuapp.com/answers"
+const API_URL = "http://localhost:5000/answers"
 const Answers = () => {
   const [answers, setAnswers] = useState([]);
 
@@ -27,7 +29,8 @@ const Answers = () => {
   ];
   useEffect(() => {
     axios
-      .get("http://appalim.herokuapp.com/answers")
+      .get("/answers")
+      // .get(API_URL)
 
       .then((response) => {
         const data = response.data;

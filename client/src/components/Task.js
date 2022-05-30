@@ -5,6 +5,9 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
+// const API_URL = "http://appalim.herokuapp.com/answers"
+const API_URL = "http://localhost:5000/answers"
+
 const Task = () => {
   const [taskList, setTaskList] = useState([]);
 
@@ -27,7 +30,8 @@ const Task = () => {
     };
 
     axios({
-      url: "http://appalim.herokuapp.com/tasks/",
+      url: "/tasks",
+      // url: API_URL + "/tasks",
       method: "POST",
       data: payload,
     })

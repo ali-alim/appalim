@@ -5,6 +5,9 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
+// const API_URL = "http://appalim.herokuapp.com/answers"
+const API_URL = "http://localhost:5000/answers"
+
 const Form = () => {
 
   const [usersInfo, setUsersInfo] = useState([]);
@@ -46,15 +49,16 @@ const Form = () => {
     };
 
     axios({
-      url: "http://appalim.herokuapp.com/answers/",
+      url: "/answers",
+      // url: API_URL,
       method: "POST",
       data: payload,
     })
       .then(() => {
         console.log("Data has been sent to the server");
       })
-      .catch(() => {
-        console.log("Internal server error");
+      .catch((e) => {
+        console.log(e);
       });
 
     navigate("/");
@@ -80,7 +84,6 @@ const Form = () => {
   const навыки = watch("навыки");
   const бесполезное = watch("бесполезное");
   const важное = watch("важное");
-  const секрет = watch("секрет");
 
   const questions = [
     // "Что нового ты узнал и что из этого внедрил?",
@@ -105,11 +108,9 @@ const Form = () => {
     "Если бы следующая неделя была бы последней в твоей жизни, какое бы одно дело ты сделал уже завтра?",
   ];
 
-  const [username, setUsername] = useState("");
 
   return (
     <>
-      {/* {username && ( */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>ВОПРОСЫ</h1>
 
