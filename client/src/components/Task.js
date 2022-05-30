@@ -49,7 +49,7 @@ const Task = () => {
   const task_name = watch("task_name");
 
   return (
-    <>
+    <div className="task">
       {console.log(taskList)}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input type="submit" value="Добавить" />
@@ -60,13 +60,13 @@ const Task = () => {
         />
       </form>
       <Link to="/tasks">
-          <button>Go to my tasks</button>
+          <button className="go_to_component">Go to my tasks</button>
       </Link>
       <br />
       <Link to="/">
           <button>Go to my main page</button>
       </Link>
-    </>
+    </div>
   );
 };
 

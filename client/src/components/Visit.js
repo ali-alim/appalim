@@ -49,7 +49,7 @@ const Visit = () => {
   const visit_name = watch("visit_name");
 
   return (
-    <>
+    <div className="visit">
       {console.log(visitList)}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input type="submit" value="Добавить" />
@@ -60,13 +60,13 @@ const Visit = () => {
         />
       </form>
       <Link to="/visits">
-          <button>Go to my visits</button>
+          <button className="go_to_component">Go to my visits</button>
       </Link>
       <br />
       <Link to="/">
           <button>Go to my main page</button>
       </Link>
-    </>
+    </div>
   );
 };
 

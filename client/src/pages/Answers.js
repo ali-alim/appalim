@@ -47,7 +47,7 @@ const Answers = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <div className="answers">
+    <div>
       <h1>ТВОИ ОТВЕТЫ</h1>
 
       {!isClicked && (

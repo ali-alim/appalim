@@ -110,7 +110,7 @@ const Form = () => {
 
 
   return (
-    <>
+    <div className="form">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>ВОПРОСЫ</h1>
 
@@ -244,8 +244,7 @@ const Form = () => {
 
         <br />
       </form>
-      {/* )} */}
-    </>
+    </div>
   );
 };
 

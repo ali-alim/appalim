@@ -224,7 +224,16 @@ answers {
   padding: 5px;
 }
 
-/* >>>>>>>>>>-------BUTTONS - IDs-------<<<<<<<<< */
+.go_to_component{
+  background-color: #030e12;
+  color: #5bccf6;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+
+/* >>>>>>>>>>-------BUTTONS - ID & CLASSNAME-------<<<<<<<<< */
 
 /* >>>>---------------- COMPONENTS - DIVS -------------<<<< */
 
@@ -253,6 +262,11 @@ answers {
   flex-direction: column;
   border-radius: 25px;
 }
+
+.task, .dream, .visit, .form{
+  margin: 10px;
+}
+
 .tasks {
   display: flex;
   width: 90%;
@@ -274,6 +288,8 @@ answers {
   background-color: #5bccf6;
   flex-direction: column;
   border-radius: 25px;
+  margin: 10px;
+
 }
 
 .visits{
@@ -285,6 +301,8 @@ answers {
   background-color: #5bccf6;
   flex-direction: column;
   border-radius: 25px;
+  margin: 10px;
+
 }
 
 /* >>>>---------------- COMPONENTS - DIVS - ENDED -------------<<<< */
@@ -298,6 +316,7 @@ answers {
     margin: 0 auto;
     margin-top: 10px;
   }
+
   .questionnaire,.tasks, .dreams{
     min-width: 90%;
   }

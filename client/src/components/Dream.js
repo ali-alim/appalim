@@ -49,7 +49,7 @@ const Dream = () => {
   const dream_name = watch("dream_name");
 
   return (
-    <>
+    <div className="dream">
       {console.log(dreamList)}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input type="submit" value="Добавить" />
@@ -60,13 +60,13 @@ const Dream = () => {
         />
       </form>
       <Link to="/dreams">
-          <button>Go to my dreams</button>
+          <button className="go_to_component">Go to my dreams</button>
       </Link>
       <br />
       <Link to="/">
           <button>Go to my main page</button>
       </Link>
-    </>
+    </div>
   );
 };
 
