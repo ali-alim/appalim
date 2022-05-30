@@ -27,7 +27,7 @@ const Answers = () => {
   ];
   useEffect(() => {
     axios
-      .get("answers")
+      .get("http://appalim.herokuapp.com/answers")
 
       .then((response) => {
         const data = response.data;

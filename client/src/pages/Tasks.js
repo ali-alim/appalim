@@ -10,7 +10,7 @@ const Tasks = () => {
 
   useEffect(() => {
     axios
-      .get("/tasks")
+      .get("http://appalim.herokuapp.com/tasks")
 
       .then((response) => {
         const data = response.data;
@@ -22,7 +22,7 @@ const Tasks = () => {
   }, [myTasks]);
 
   const deleteTask = (id) => {
-    axios.delete(`/tasks/${id}`, id)
+    axios.delete(`http://appalim.herokuapp.com/tasks/${id}`, id)
   }
 
   return (
