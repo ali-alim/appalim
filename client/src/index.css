@@ -168,6 +168,62 @@ answers {
   padding: 5px;
 }
 
+#delete_dream_button{
+  background-color: #030e12;
+  color: #5bccf6;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#set_new_dream{
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+#dreams_button{
+  background-color: var(--black-color);
+  color: #5bccf6;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+#visits_button{
+  background-color: var(--black-color);
+  color: #5bccf6;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+#set_new_visit{
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+#delete_visit_button{
+  background-color: #030e12;
+  color: #5bccf6;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 /* >>>>>>>>>>-------BUTTONS - IDs-------<<<<<<<<< */
 
 /* >>>>---------------- COMPONENTS - DIVS -------------<<<< */
@@ -210,6 +266,17 @@ answers {
   margin: 10px;
 }
 .dreams {
+  display: flex;
+  width: 90%;
+  min-height: 250px;
+  justify-content: center;
+  align-items: center;
+  background-color: #5bccf6;
+  flex-direction: column;
+  border-radius: 25px;
+}
+
+.visits{
   display: flex;
   width: 90%;
   min-height: 250px;

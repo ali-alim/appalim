@@ -22,6 +22,8 @@ app.use(cors());
 
 app.use("/auth", require('./routes/auth'));
 app.use("/tasks", require("./routes/tasks"));
+app.use("/dreams", require("./routes/dreams"));
+app.use("/visits", require("./routes/visits"));
 app.use("/answers", require("./routes/answers"));
 
 if (process.env.NODE_ENV === "production") {
