@@ -36,8 +36,11 @@ const Trainings = () => {
       <br />
       {mytrainings.map((mytraining,index) => (
         <li key={index}>
-          {mytraining.training_date} - {mytraining.training_name} - {mytraining.training_totalNum} раз 
-          - <button id="delete_training_button" onClick={() => deleteTraining(mytraining._id)}>
+          <center>{mytraining.training_date} </center>
+          {mytraining.training_name_1} - {mytraining.training_totalNum_1} раз  <br />
+          {mytraining.training_name_2} - {mytraining.training_totalNum_2} раз <br />
+          {mytraining.training_name_3} - {mytraining.training_totalNum_3} раз  <br />
+          <button id="delete_training_button" onClick={() => deleteTraining(mytraining._id)}>
             delete
             </button>
             </li>

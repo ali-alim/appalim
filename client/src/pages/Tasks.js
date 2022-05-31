@@ -29,7 +29,8 @@ const Tasks = () => {
 
   const doneTask = (index) => {
     const edited = document.getElementById(index);
-    edited.style.lineThrough = "line-through";
+    edited.style.textDecoration = "line-through";
+
   };
 
   return (
@@ -38,7 +39,7 @@ const Tasks = () => {
         <button className="go_to_mainpage">Go to my main page</button>
       </Link>
       {myTasks.map((mytask, index) => (
-        <li key={index}>
+        <li key={index} id={index}>
           {mytask.task_date} - {mytask.task_name} -{" "}
           <button
             id="delete_task_button"

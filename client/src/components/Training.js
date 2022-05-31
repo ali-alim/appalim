@@ -19,6 +19,10 @@ const Training = () => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
     training_date = formattedDate.toString();
 
+    // training_name_1 = training_name_1.toString();
+    training_name_2 = training_name_2.toString();
+    training_name_3 = training_name_3.toString();
+
     training_numInSets_1=training_numInSets_1.toString();
     training_numInSets_2 = training_numInSets_2.toString();
     training_numInSets_3=training_numInSets_3.toString();
@@ -68,13 +72,16 @@ const Training = () => {
         console.log("Internal server error");
       });
     reset();
-    navigate("/training");
+    navigate("/trainings");
+    
   };
 
   let training_date = watch("training_date");
-  const training_name_1 = watch("training_name_1");
-  const training_name_2 = watch("training_name_2");
-  const training_name_3 = watch("training_name_3");
+  
+  let training_name_1 = watch("training_name_1");
+  let training_name_2 = watch("training_name_2");
+  let training_name_3 = watch("training_name_3");
+
   let training_numOfSets_1 = watch("training_numOfSets_1");
   let training_numOfSets_2 = watch("training_numOfSets_2");
   let training_numOfSets_3 = watch("training_numOfSets_3");
@@ -101,7 +108,7 @@ const Training = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* #1 */}
         <input className="input_training_name"
-          value="приседания" disabled="disabled"
+          value="приседания"
           {...register("training_name_1")}
         />
         <br />
@@ -131,7 +138,7 @@ const Training = () => {
       {/* #2 */}
       <br />
       <input className="input_training_name"
-          value="отжимания от пола" disabled="disabled"
+          value="отжимания от пола"
           {...register("training_name_2")}
         />
         <br />
@@ -159,7 +166,7 @@ const Training = () => {
       {/* #3 */}
       <br />
       <input className="input_training_name"
-          value="подтягивания на турнике" disabled="disabled"
+          value="подтягивания на турнике"
           {...register("training_name_3")}
         />
         <br />

@@ -8,8 +8,8 @@ let today = new Date();
 const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000"
 
-const Visit = () => {
-  const [visitList, setVisitList] = useState([]);
+const Finance = () => {
+  const [financeList, setFinanceList] = useState([]);
 
   const navigate = useNavigate();
 
@@ -17,21 +17,21 @@ const Visit = () => {
 
   const onSubmit = (data) => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
-    visit_date = formattedDate.toString();
+    finance_date = formattedDate.toString();
 
-    const visit = {
-      visit_date,
-      visit_name,
+    const finance = {
+      finance_date,
+      finance_name,
     };
-    setVisitList([...visitList, visit]);
+    setFinanceList([...financeList, finance]);
 
     const payload = {
-      ...visit,
+      ...finance,
     };
 
     axios({
       // url: "/tasks",
-      url: API_URL + "/visits",
+      url: API_URL + "/finances",
       method: "POST",
       data: payload,
     })
@@ -42,17 +42,17 @@ const Visit = () => {
         console.log("Internal server error");
       });
     reset();
-    navigate("/visit");
+    navigate("/finance");
   };
 
-  let visit_date = watch("visit_date");
-  const visit_name = watch("visit_name");
+  let finance_date = watch("finance_date");
+  const finance_name = watch("finance_name");
 
   return (
-    <div className="visit">
+    <div className="finance">
       <div className="two_buttons">
-        <Link to="/visits">
-          <button className="go_to_component">Go to my visits</button>
+        <Link to="/finances">
+          <button className="go_to_component">Go to my finances</button>
         </Link>
         <Link to="/">
           <button className="go_to_mainpage">Go to my main page</button>
@@ -62,8 +62,8 @@ const Visit = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <br />
         <input 
-          placeholder="Добавь визит ..."
-          {...register("visit_name", { required: true })}
+          placeholder="Добавь финансы ..."
+          {...register("finance_name", { required: true })}
         />
         <input type="submit" value="Добавить" />
       </form>
@@ -71,4 +71,4 @@ const Visit = () => {
   );
 };
 
-export default Visit;
+export default Finance;
