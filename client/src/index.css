@@ -65,6 +65,10 @@ textarea {
   margin-left: 0;
 }
 
+.training_inputs::placeholder{
+  font-size: 8px;
+}
+
 .input_training_name{
   width: 300px;
   margin: 0 auto;
