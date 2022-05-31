@@ -47,6 +47,16 @@ const Home = () => {
         </Link>
       </div>
 
+      <div className="trainings">
+        DOCTOR VISITS
+        <Link to="/training">
+          <button id="set_new_training">ДОБАВИТЬ ТРЕНИРОВКУ</button>
+        </Link>
+        <Link to="/trainings">
+          <button id="trainings_button">ПЕРЕЙТИ К ТРЕНИРОВКАМ</button>
+        </Link>
+      </div>
+
     </div>
   );
 };
