@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
@@ -13,11 +13,24 @@ const Training = () => {
 
   const navigate = useNavigate();
 
-  const { register, handleSubmit, watch, reset, control } = useForm({ mode: "all" });
+  const { register, handleSubmit, watch, reset } = useForm({ mode: "all" });
 
   const onSubmit = (data) => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
     training_date = formattedDate.toString();
+
+    training_numInSets_1=training_numInSets_1.toString();
+    training_numInSets_2 = training_numInSets_2.toString();
+    training_numInSets_3=training_numInSets_3.toString();
+
+    training_numOfSets_1=training_numOfSets_1.toString();
+    training_numOfSets_2=training_numOfSets_2.toString();
+    training_numOfSets_3=training_numOfSets_3.toString();
+
+    training_totalNum_1=training_totalNum_1.toString();
+    training_totalNum_2=training_totalNum_2.toString();
+    training_totalNum_3=training_totalNum_3.toString();
+
 
     const training = {
       training_date,
@@ -27,13 +40,17 @@ const Training = () => {
       training_numOfSets_1,
       training_numOfSets_2,
       training_numOfSets_3,
+
       training_numInSets_1,
       training_numInSets_2,
       training_numInSets_3,
+
       training_totalNum_1,
       training_totalNum_2,
       training_totalNum_3,
     };
+
+    console.log(training)
     setTrainingList([...trainingList, training]);
 
     const payload = {
@@ -63,9 +80,11 @@ const Training = () => {
   let training_numOfSets_1 = watch("training_numOfSets_1");
   let training_numOfSets_2 = watch("training_numOfSets_2");
   let training_numOfSets_3 = watch("training_numOfSets_3");
+
   let training_numInSets_1 = watch("training_numInSets_1");
   let training_numInSets_2 = watch("training_numInSets_2");
   let training_numInSets_3 = watch("training_numInSets_3");
+  
   let training_totalNum_1 = watch("training_numInSets_1");
   let training_totalNum_2 = watch("training_numInSets_2");
   let training_totalNum_3 = watch("training_numInSets_3");
@@ -83,7 +102,6 @@ const Training = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* #1 */}
-        <br />
         <input className="input_training_name"
           value="приседания" disabled="disabled"
           {...register("training_name_1", { required: true })}
@@ -130,7 +148,6 @@ const Training = () => {
           {...register("training_numInSets_2", { required: true })}
         />
 
-        <span style={{ display: "none" }}>{(training_totalNum_2 = training_numOfSets_2 * training_numInSets_2)}</span>
 
         <input className="training_inputs"
           placeholder={
