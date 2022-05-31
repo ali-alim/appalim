@@ -61,7 +61,7 @@ const Visit = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <br />
-        <textarea
+        <input label="a"
           placeholder="Добавь визит ..."
           {...register("visit_name", { required: true })}
         />

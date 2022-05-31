@@ -56,15 +56,30 @@ textarea {
   font-weight: bold;
 }
 
-input:hover {
-  border: 2px rgb(0, 163, 224) solid;
+
+.training_inputs{
+  width: 80px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-left: 0;
 }
+
+.input_training_name{
+  width: 300px;
+  margin: 0 auto;
+}
+
+input:hover {
+  border: 2px var(--blue-color) solid;
+}
+
 ::placeholder {
   color: black;
   opacity: 0.3;
 }
 input:focus {
-  outline: rgb(0, 163, 224);
+  outline: var(--blue-color);
 }
 
 input[type="submit"] {
@@ -72,6 +87,7 @@ input[type="submit"] {
   color: #fcde67;
   width: 150px;
   border-radius: 10px;
+  margin-left: 0;
 }
 
 strong {

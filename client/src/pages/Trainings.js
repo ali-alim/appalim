@@ -30,8 +30,17 @@ const Trainings = () => {
 
   return (
     <div className='trainings_page'>
+            <Link to="/">
+        <button className="go_to_mainpage">Go to my main page</button>
+      </Link>
+      <br />
       {mytrainings.map((mytraining,index) => (
-        <li key={index}>{mytraining.training_date} - {mytraining.training_name} - <button id="delete_training_button" onClick={() => deleteTraining(mytraining._id)}>delete</button></li>
+        <li key={index}>
+          {mytraining.training_date} - {mytraining.training_name} - {mytraining.training_totalNum} раз 
+          - <button id="delete_training_button" onClick={() => deleteTraining(mytraining._id)}>
+            delete
+            </button>
+            </li>
       ))}
     <Link to="/training">
     <button className="go_to_component">create new training</button>

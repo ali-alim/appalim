@@ -48,7 +48,7 @@ const Home = () => {
       </div>
 
       <div className="trainings">
-        DOCTOR VISITS
+        TRAININGS
         <Link to="/training">
           <button id="set_new_training">ДОБАВИТЬ ТРЕНИРОВКУ</button>
         </Link>
