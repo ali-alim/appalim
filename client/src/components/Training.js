@@ -40,11 +40,9 @@ const Training = () => {
       training_numOfSets_1,
       training_numOfSets_2,
       training_numOfSets_3,
-
       training_numInSets_1,
       training_numInSets_2,
       training_numInSets_3,
-
       training_totalNum_1,
       training_totalNum_2,
       training_totalNum_3,
@@ -84,7 +82,7 @@ const Training = () => {
   let training_numInSets_1 = watch("training_numInSets_1");
   let training_numInSets_2 = watch("training_numInSets_2");
   let training_numInSets_3 = watch("training_numInSets_3");
-  
+
   let training_totalNum_1 = watch("training_numInSets_1");
   let training_totalNum_2 = watch("training_numInSets_2");
   let training_totalNum_3 = watch("training_numInSets_3");
@@ -104,7 +102,7 @@ const Training = () => {
         {/* #1 */}
         <input className="input_training_name"
           value="приседания" disabled="disabled"
-          {...register("training_name_1", { required: true })}
+          {...register("training_name_1")}
         />
         <br />
         <input className="training_inputs"
@@ -134,7 +132,7 @@ const Training = () => {
       <br />
       <input className="input_training_name"
           value="отжимания от пола" disabled="disabled"
-          {...register("training_name_2", { required: true })}
+          {...register("training_name_2")}
         />
         <br />
         <input className="training_inputs"
@@ -162,7 +160,7 @@ const Training = () => {
       <br />
       <input className="input_training_name"
           value="подтягивания на турнике" disabled="disabled"
-          {...register("training_name_3", { required: true })}
+          {...register("training_name_3")}
         />
         <br />
         <input className="training_inputs"
