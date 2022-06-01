@@ -20,12 +20,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use("/auth", require('./routes/auth'));
+app.use("/answers", require("./routes/answers"));
 app.use("/tasks", require("./routes/tasks"));
 app.use("/dreams", require("./routes/dreams"));
 app.use("/visits", require("./routes/visits"));
 app.use("/trainings", require("./routes/trainings"));
-app.use("/answers", require("./routes/answers"));
+app.use("/finances", require("./routes/finances"));
+app.use("/auth", require('./routes/auth'));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
