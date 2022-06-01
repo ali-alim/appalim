@@ -48,7 +48,7 @@ const Finance = () => {
   };
 
   let finance_date = watch("finance_date");
-  const finance_name = watch("finance_name");
+  let finance_name = watch("finance_name");
 
   return (
     <div className="finance">
