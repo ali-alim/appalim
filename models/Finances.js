@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const FinancesSchema = new mongoose.Schema({
-  visit_date:String,
-  visit_name:String,
+  finance_date:String,
+  finance_name:String,
   },
 
 );

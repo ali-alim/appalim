@@ -18,6 +18,7 @@ const Finance = () => {
   const onSubmit = (data) => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
     finance_date = formattedDate.toString();
+    finance_name = finance_name.toString();
 
     const finance = {
       finance_date,
@@ -29,6 +30,7 @@ const Finance = () => {
       ...finance,
     };
 
+    console.log(payload)
     axios({
       // url: "/tasks",
       url: API_URL + "/finances",
