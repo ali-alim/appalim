@@ -132,7 +132,7 @@ const Training = () => {
               : training_totalNum_1
           }
           {...register("training_totalNum_1")}
-        />
+          />
       <br />
 
       {/* #2 */}
@@ -153,6 +153,7 @@ const Training = () => {
           {...register("training_numInSets_2", { required: true })}
         />
 
+<span style={{ display: "none" }}>{(training_totalNum_2 = training_numOfSets_2 * training_numInSets_2)}</span>
 
         <input className="training_inputs"
           placeholder={

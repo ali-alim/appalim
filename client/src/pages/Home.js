@@ -57,6 +57,16 @@ const Home = () => {
         </Link>
       </div>
 
+      <div className="finances">
+        FINANCES
+        <Link to="/finance">
+          <button id="set_new_finance">ДОБАВИТЬ ФИНАНСЫ</button>
+        </Link>
+        <Link to="/finances">
+          <button id="finances_button">ПЕРЕЙТИ К ФИНАНСАМ</button>
+        </Link>
+      </div>
+
     </div>
   );
 };

@@ -4,11 +4,13 @@ import Form from "./components/Form";
 import Task from "./components/Task";
 import Training from "./components/Training";
 import Visit from "./components/Visit";
+import Finance from "./components/Finance";
 import Answers from "./pages/Answers";
 import Dreams from "./pages/Dreams";
 import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
 import Trainings from "./pages/Trainings";
+import Finances from "./pages/Finances";
 import Visits from "./pages/Visits";
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
 
           <Route path="/training" element={<Training />} />
           <Route path="/trainings" element={<Trainings />} />
+
+          <Route path="/finance" element={<Finance />} />
+          <Route path="/finances" element={<Finances />} />
           <Route
             path="/form"
             // element={<Form usersInfo={usersInfo} setUsersInfo={setUsersInfo} />}

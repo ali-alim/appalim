@@ -42,4 +42,4 @@ const Finances = () => {
   );
 };
 
-export default finances;
+export default Finances;
