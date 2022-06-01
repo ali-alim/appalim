@@ -5,7 +5,7 @@ import axios from "axios";
 const API_URL = "http://appalim.herokuapp.com";
 
 const Finances = () => {
-  const [myfinances, setMyFinances] = useState([]);
+  const [myFinances, setMyFinances] = useState([]);
 
   useEffect(() => {
     axios
@@ -19,7 +19,7 @@ const Finances = () => {
       .catch(() => {
         alert("Error retrieving data");
       });
-  }, [myfinances]);
+  }, [myFinances]);
 
 
 
@@ -29,7 +29,7 @@ const Finances = () => {
         <button className="go_to_mainpage">Go to my main page</button>
       </Link>
       <br />
-      {myfinances.map((myfinance, index) => (
+      {myFinances.map((myfinance, index) => (
         <li key={index}>
           {myfinance.finance_date} - {myfinance.finance_name} -{" "}
 
