@@ -34,6 +34,12 @@ function App() {
 
           <Route path="/finance" element={<Finance />} />
           <Route path="/finances" element={<Finances />} />
+
+          <Route
+              path="/tasks/:id"
+              element={<Task editMode={true} />}
+            />
+
           <Route
             path="/form"
             // element={<Form usersInfo={usersInfo} setUsersInfo={setUsersInfo} />}

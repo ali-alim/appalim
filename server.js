@@ -26,6 +26,7 @@ app.use("/dreams", require("./routes/dreams"));
 app.use("/visits", require("./routes/visits"));
 app.use("/trainings", require("./routes/trainings"));
 app.use("/finances", require("./routes/finances"));
+app.use("/deleted", require("./routes/deleted"));
 app.use("/auth", require('./routes/auth'));
 
 if (process.env.NODE_ENV === "production") {

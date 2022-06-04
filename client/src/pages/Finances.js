@@ -21,7 +21,10 @@ const Finances = () => {
       });
   }, [myFinances]);
 
-
+  const deleteFinance = (id) => {
+    axios.delete(`${API_URL}/finances/${id}`, id);
+    // axios.delete(`${API_URL}/${id}`, id)
+  };
 
   return (
     <div className="finances_page">
@@ -31,10 +34,17 @@ const Finances = () => {
       <br />
       {myFinances.map((myfinance, index) => (
         <li key={index}>
+          Month name: {myfinance.finance_month} 
+          <br />
           {myfinance.finance_date} - {myfinance.finance_name} -{" "}
-
+          <button
+            id="delete_finance_button"
+            onClick={() => deleteFinance(myfinance._id)}
+          >
+            delete
+          </button>
         </li>
-      ))}
+      ))}{" "}
       <Link to="/finance">
         <button className="go_to_component">create new finance</button>
       </Link>

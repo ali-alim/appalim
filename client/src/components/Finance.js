@@ -8,6 +8,23 @@ let today = new Date();
 const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000"
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+let finance_month = ''
+
 const Finance = () => {
   const [financeList, setFinanceList] = useState([]);
 
@@ -16,13 +33,20 @@ const Finance = () => {
   const { register, handleSubmit, watch, reset } = useForm({ mode: "all" });
 
   const onSubmit = (data) => {
+    
+    
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
     finance_date = formattedDate.toString();
     finance_name = finance_name.toString();
+    const numberOfMonth = new Date(today).getMonth()
+    finance_month = months[numberOfMonth]
+
+    // console.log(`month name is: `, finance_month);
 
     const finance = {
       finance_date,
       finance_name,
+      finance_month
     };
     setFinanceList([...financeList, finance]);
 
@@ -31,6 +55,7 @@ const Finance = () => {
     };
 
     console.log(payload)
+
     axios({
       // url: "/tasks",
       url: API_URL + "/finances",
@@ -63,7 +88,7 @@ const Finance = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <br />
-        <input 
+        <input
           placeholder="Добавь финансы ..."
           {...register("finance_name", { required: true })}
         />

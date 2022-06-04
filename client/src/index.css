@@ -486,3 +486,8 @@ strong {
 }
 
 /* >>>>> ------------ MEDIA QUERIES -ENDED --------- <<<<<<<< */
+
+.tasks-link{
+  text-decoration: none;
+  color:black;
+}
