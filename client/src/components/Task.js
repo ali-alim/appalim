@@ -29,6 +29,8 @@ const Task = ({ editMode }) => {
       task_date,
       task_name,
       task_done,
+      task_category,
+      task_deadline,
     };
     setTaskList([...taskList, task]);
 
@@ -66,6 +68,8 @@ const Task = ({ editMode }) => {
 
   let task_date = watch("task_date");
   const task_name = watch("task_name");
+  const task_category = watch("task_category");
+  const task_deadline = watch("task_deadline");
   let task_done = watch("task_done");
 
   const fetchData = async () => {
@@ -101,13 +105,21 @@ const Task = ({ editMode }) => {
               name="task_done"
               control={control}
               render={({ field }) => <Checkbox {...field} />}
-            /> check if the task is already completed
+            />{" "}
+            check if the task is already completed
             <br />
             <textarea
               placeholder="Введи задачу ..."
               {...register("task_name", { required: true })}
             />
-
+            <input
+              placeholder="Дата исполнения ..."
+              {...register("task_deadline", { required: true })}
+            />
+            <input
+              placeholder="Категория ..."
+              {...register("task_category", { required: true })}
+            />
             <input type="submit" value="Добавить" />
           </form>
         </>
@@ -116,18 +128,17 @@ const Task = ({ editMode }) => {
         <>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
-            
               name="task_done"
               control={control}
               render={({ field }) => <Checkbox {...field} />}
-            /> the task is completed
+            />{" "}
+            the task is completed
             <br />
             <textarea
               placeholder="Введи задачу ..."
               value={selectedTask.task_name}
               {...register("task_name", { required: true })}
             />
-
             <input type="submit" value="Изменить" />
           </form>
         </>

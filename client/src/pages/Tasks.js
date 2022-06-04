@@ -31,12 +31,13 @@ const Tasks = ({ editMode }) => {
       <Link to="/">
         <button className="go_to_mainpage">Go to my main page</button>
       </Link>
+      <h1>TASKS TO COMPLETE</h1>
       {myTasks
       // .filter((mytask) => mytask.task_done === false)
       .map((mytask, index) => (
         <li key={index} id={index}>
           <Link to={`/tasks/${mytask._id}`} className="tasks-link">
-            {mytask.task_date} - {mytask.task_name} -{" "}
+            {mytask.task_date} - {mytask.task_category} - {mytask.task_name} - {mytask.task_deadline} 
           </Link>
           <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
             delete
@@ -54,7 +55,7 @@ const Tasks = ({ editMode }) => {
             .filter((task) => task.task_done === true)
             .map((task, index) => (
               <li key={index} style={{textDecoration:'line-through'}}>
-                {task.task_date} - {task.task_name} - {task.task_done}
+                {task.task_date} - {task.task_category} - {task.task_name} - {task.task_deadline} 
               </li>
             ))}
         </ul>
