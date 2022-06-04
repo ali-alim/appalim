@@ -5,7 +5,7 @@ import axios from "axios";
 // const API_URL = "http://appalim.herokuapp.com";
 const API_URL = "http://localhost:5000";
 
-const Tasks = ({editMode}) => {
+const Tasks = ({ editMode }) => {
   const [myTasks, setMyTasks] = useState([]);
 
   // 1. useEffect - axios.get -> getTasks
@@ -21,16 +21,14 @@ const Tasks = ({editMode}) => {
       });
   }, [myTasks]);
 
-
   const deleteTask = async (mytask) => {
     const id = mytask._id;
     await axios.delete(`${API_URL}/tasks/${id}`, id);
-  }
-
-  const doneTask = (mytask) => {
-    setMyTasks([{...myTasks,[mytask.task_name]:'fucked'}])
   };
 
+  const doneTask = (mytask) => {
+    setMyTasks([{ ...myTasks, [mytask.task_name]: "fucked" }]);
+  };
 
   return (
     <div className="tasks_page">
@@ -39,8 +37,8 @@ const Tasks = ({editMode}) => {
       </Link>
       {myTasks.map((mytask, index) => (
         <li key={index} id={index}>
-          <Link to={`/tasks/${mytask._id}`} className="tasks-link"> 
-          {mytask.task_date} - {mytask.task_name} -{" "}
+          <Link to={`/tasks/${mytask._id}`} className="tasks-link">
+            {mytask.task_date} - {mytask.task_name} -{" "}
           </Link>
           <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
             delete
@@ -57,9 +55,13 @@ const Tasks = ({editMode}) => {
       <div>
         <h1>Deleted Tasks</h1>
         <ul>
-        {myTasks.map((task, index) => (
-          <li key={index}>{task.task_date} - {task.task_name} - {task.task_done}</li>
-        ))}
+          {myTasks
+            .filter((task) => task.task_done === true)
+            .map((task, index) => (
+              <li key={index}>
+                {task.task_date} - {task.task_name} - {task.task_done}
+              </li>
+            ))}
         </ul>
       </div>
     </div>

@@ -78,7 +78,6 @@ const Task = ({ editMode }) => {
       .catch(() => {
         alert("error retrieving data");
       });
-    console.log(`id from fetchData:`, id);
   };
 
   useEffect(() => {
