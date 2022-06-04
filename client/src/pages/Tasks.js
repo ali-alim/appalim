@@ -26,25 +26,20 @@ const Tasks = ({ editMode }) => {
     await axios.delete(`${API_URL}/tasks/${id}`, id);
   };
 
-  const doneTask = (mytask) => {
-    setMyTasks([{ ...myTasks, [mytask.task_name]: "fucked" }]);
-  };
-
   return (
     <div className="tasks_page">
       <Link to="/">
         <button className="go_to_mainpage">Go to my main page</button>
       </Link>
-      {myTasks.map((mytask, index) => (
+      {myTasks
+      // .filter((mytask) => mytask.task_done === false)
+      .map((mytask, index) => (
         <li key={index} id={index}>
           <Link to={`/tasks/${mytask._id}`} className="tasks-link">
             {mytask.task_date} - {mytask.task_name} -{" "}
           </Link>
           <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
             delete
-          </button>
-          <button className="done_button" onClick={() => doneTask(mytask)}>
-            done
           </button>
         </li>
       ))}
@@ -53,12 +48,12 @@ const Tasks = ({ editMode }) => {
       </Link>
 
       <div>
-        <h1>Deleted Tasks</h1>
+        <h1>Completed Tasks</h1>
         <ul>
           {myTasks
             .filter((task) => task.task_done === true)
             .map((task, index) => (
-              <li key={index}>
+              <li key={index} style={{textDecoration:'line-through'}}>
                 {task.task_date} - {task.task_name} - {task.task_done}
               </li>
             ))}

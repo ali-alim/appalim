@@ -491,3 +491,7 @@ strong {
   text-decoration: none;
   color:black;
 }
+
+.checkbox{
+  width: 50px;
+}

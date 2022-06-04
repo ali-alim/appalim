@@ -101,7 +101,7 @@ const Task = ({ editMode }) => {
               name="task_done"
               control={control}
               render={({ field }) => <Checkbox {...field} />}
-            />
+            /> check if the task is already completed
             <br />
             <textarea
               placeholder="Введи задачу ..."
@@ -116,10 +116,11 @@ const Task = ({ editMode }) => {
         <>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
+            
               name="task_done"
               control={control}
               render={({ field }) => <Checkbox {...field} />}
-            />
+            /> the task is completed
             <br />
             <textarea
               placeholder="Введи задачу ..."
