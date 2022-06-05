@@ -6,8 +6,8 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-// const API_URL = "http://appalim.herokuapp.com";
-const API_URL = "http://localhost:5000";
+const API_URL = "http://appalim.herokuapp.com";
+// const API_URL = "http://localhost:5000";
 
 const Task = ({ editMode }) => {
   const [taskList, setTaskList] = useState([]);
