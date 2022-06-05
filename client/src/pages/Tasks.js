@@ -11,7 +11,7 @@ const Tasks = ({ editMode }) => {
   // 1. useEffect - axios.get -> getTasks
   useEffect(() => {
     axios
-      .get(API_URL + "/tasks")
+      .get(API_URL + "/api/tasks")
       .then((response) => {
         const data = response.data;
         setMyTasks(data);
@@ -33,14 +33,14 @@ const Tasks = ({ editMode }) => {
       </Link>
       <h1>TASKS TO COMPLETE</h1>
       {myTasks
-      // .filter((mytask) => mytask.task_done === false)
+      .filter((mytask) => mytask.task_done === false)
       .map((mytask, index) => (
         <li key={index} id={index}>
           <Link to={`/tasks/${mytask._id}`} className="tasks-link">
             {mytask.task_date} - {''} 
              {mytask.task_category}  - {''} 
-              {mytask.task_name} - {''} 
-              {mytask.task_deadline}
+              <strong>{mytask.task_name}</strong> - {''} 
+              {mytask.task_deadline}{''} {''} 
           </Link>
           <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
             delete

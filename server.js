@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/answers", require("./routes/answers"));
-app.use("/tasks", require("./routes/tasks"));
+app.use("/api/tasks", require("./routes/tasks"));
 app.use("/dreams", require("./routes/dreams"));
 app.use("/visits", require("./routes/visits"));
 app.use("/trainings", require("./routes/trainings"));

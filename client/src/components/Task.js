@@ -33,7 +33,7 @@ const Task = ({ editMode }) => {
       task_deadline,
     };
     setTaskList([...taskList, task]);
-
+    console.log(task)
     const payload = {
       ...task,
     };
@@ -41,7 +41,7 @@ const Task = ({ editMode }) => {
     if (!editMode) {
       axios({
         // url: "/tasks",
-        url: API_URL + "/tasks",
+        url: API_URL + "/api/tasks",
         method: "POST",
         data: payload,
       })
@@ -58,7 +58,7 @@ const Task = ({ editMode }) => {
 
     if (editMode) {
       try {
-        await axios.put(`${API_URL}/tasks/${id}`, task);
+        await axios.put(`${API_URL}/api/tasks/${id}`, task);
       } catch (err) {
         console.log(err);
       }
@@ -74,7 +74,7 @@ const Task = ({ editMode }) => {
 
   const fetchData = async () => {
     axios
-      .get(`${API_URL}/tasks/${id}`)
+      .get(`${API_URL}/api/tasks/${id}`)
       .then((response) => {
         const data = response.data;
         setSelectedTask(data);
@@ -120,6 +120,7 @@ const Task = ({ editMode }) => {
               placeholder="Категория ..."
               {...register("task_category", { required: true })}
             />
+            <br />
             <input type="submit" value="Добавить" />
           </form>
         </>
