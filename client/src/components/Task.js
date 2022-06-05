@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import { Checkbox } from "@material-ui/core";
+import { Checkbox } from '@mui/material';
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
