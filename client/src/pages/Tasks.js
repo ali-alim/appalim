@@ -37,11 +37,15 @@ const Tasks = ({ editMode }) => {
       .map((mytask, index) => (
         <li key={index} id={index}>
           <Link to={`/tasks/${mytask._id}`} className="tasks-link">
-            {mytask.task_date} - {mytask.task_category} - {mytask.task_name} - {mytask.task_deadline} 
+            {mytask.task_date} - {''} 
+             {mytask.task_category}  - {''} 
+              {mytask.task_name} - {''} 
+              {mytask.task_deadline}
           </Link>
           <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
             delete
           </button>
+          
         </li>
       ))}
       <Link to="/task">

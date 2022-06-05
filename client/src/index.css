@@ -56,8 +56,7 @@ textarea {
   font-weight: bold;
 }
 
-
-.training_inputs{
+.training_inputs {
   width: 80px;
   padding: 10px;
   border-radius: 10px;
@@ -65,11 +64,11 @@ textarea {
   margin-left: 0;
 }
 
-.training_inputs::placeholder{
+.training_inputs::placeholder {
   font-size: 8px;
 }
 
-.input_training_name{
+.input_training_name {
   width: 400px;
   margin: 0 auto;
 }
@@ -99,13 +98,11 @@ strong {
   color: red;
 }
 
-
 /* >>>>>>>---------CLASSES----------<<<<<< */
 .text_field {
   width: 100%;
   color: rgb(0, 163, 224);
 }
-
 
 .answers_answer {
   color: deeppink;
@@ -183,36 +180,36 @@ strong {
   color: deeppink;
   border-radius: 5px;
   padding: 2px;
-  border:1px solid deeppink;
+  border: 1px solid deeppink;
   margin: 2px;
 }
 
-#delete_visit_button{
+#delete_visit_button {
   background-color: var(--yellow-color);
   color: deeppink;
   border-radius: 5px;
   padding: 2px;
-  border:1px solid deeppink;
+  border: 1px solid deeppink;
   margin: 2px;
 }
-#delete_finance_button{
+#delete_finance_button {
   background-color: var(--yellow-color);
   color: deeppink;
   border-radius: 5px;
   padding: 2px;
-  border:1px solid deeppink;
+  border: 1px solid deeppink;
   margin: 2px;
 }
-#delete_dream_button{
+#delete_dream_button {
   background-color: var(--yellow-color);
   color: deeppink;
   border-radius: 5px;
   padding: 2px;
-  border:1px solid deeppink;
+  border: 1px solid deeppink;
   margin: 2px;
 }
 
-#set_new_dream{
+#set_new_dream {
   background-color: var(--yellow-color);
   color: var(--black-color);
   border-color: transparent;
@@ -222,7 +219,7 @@ strong {
   font-size: 15px;
 }
 
-#dreams_button{
+#dreams_button {
   background-color: var(--black-color);
   color: #5bccf6;
   border-color: transparent;
@@ -232,7 +229,7 @@ strong {
   font-size: 15px;
 }
 
-#visits_button{
+#visits_button {
   background-color: var(--black-color);
   color: #5bccf6;
   border-color: transparent;
@@ -241,17 +238,7 @@ strong {
   margin: 10px;
   font-size: 15px;
 }
-#finances_button{
-  background-color: var(--black-color);
-  color: #5bccf6;
-  border-color: transparent;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
-  font-size: 15px;
-}
-
-#trainings_button{
+#finances_button {
   background-color: var(--black-color);
   color: #5bccf6;
   border-color: transparent;
@@ -261,7 +248,17 @@ strong {
   font-size: 15px;
 }
 
-#set_new_visit{
+#trainings_button {
+  background-color: var(--black-color);
+  color: #5bccf6;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  font-size: 15px;
+}
+
+#set_new_visit {
   background-color: var(--yellow-color);
   color: var(--black-color);
   border-color: transparent;
@@ -270,17 +267,7 @@ strong {
   margin: 10px;
   font-size: 15px;
 }
-#set_new_finance{
-  background-color: var(--yellow-color);
-  color: var(--black-color);
-  border-color: transparent;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 15px;
-}
-
-#set_new_training{
+#set_new_finance {
   background-color: var(--yellow-color);
   color: var(--black-color);
   border-color: transparent;
@@ -290,15 +277,23 @@ strong {
   font-size: 15px;
 }
 
+#set_new_training {
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+}
 
-.two_buttons{
+.two_buttons {
   max-width: 350px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-
-.go_to_component{
+.go_to_component {
   background-color: var(--blue-color);
   color: var(--black-color);
   border-color: transparent;
@@ -309,7 +304,7 @@ strong {
   width: 100%; */
 }
 
-.go_to_mainpage{
+.go_to_mainpage {
   background-color: var(--green-color);
   color: var(--black-color);
   border-color: transparent;
@@ -320,12 +315,12 @@ strong {
   width: 100%; */
 }
 
-.done_button{
+.done_button {
   background-color: var(--blue-color);
   color: var(--black-color);
   border-radius: 5px;
   padding: 2px;
-  border:1px solid var(--blue-color);
+  border: 1px solid var(--blue-color);
   margin: 2px;
 }
 
@@ -359,7 +354,12 @@ strong {
   border-radius: 25px;
 }
 
-.task, .dream, .visit, .form, .training, .finance{
+.task,
+.dream,
+.visit,
+.form,
+.training,
+.finance {
   margin: 10px;
 }
 
@@ -385,10 +385,9 @@ strong {
   flex-direction: column;
   border-radius: 25px;
   margin: 10px;
-
 }
 
-.visits{
+.visits {
   display: flex;
   width: 90%;
   min-height: 250px;
@@ -399,7 +398,7 @@ strong {
   border-radius: 25px;
   margin: 10px;
 }
-.finances{
+.finances {
   display: flex;
   width: 90%;
   min-height: 250px;
@@ -410,7 +409,7 @@ strong {
   border-radius: 25px;
   margin: 10px;
 }
-.trainings{
+.trainings {
   display: flex;
   width: 90%;
   min-height: 250px;
@@ -420,11 +419,14 @@ strong {
   flex-direction: column;
   border-radius: 25px;
   margin: 10px;
-
 }
 
-
-.tasks_page, .dreams_page, .visits_page, .answers_page, .trainings_page, .finances_page{
+.tasks_page,
+.dreams_page,
+.visits_page,
+.answers_page,
+.trainings_page,
+.finances_page {
   margin: 10px;
 }
 
@@ -433,14 +435,16 @@ strong {
 /* >>>>> ------------ MEDIA QUERIES --------- <<<<<<<< */
 
 @media screen and (max-width: 500px) {
-  .home{
+  .home {
     display: flex;
     width: 100%;
     margin: 0 auto;
     margin-top: 10px;
   }
 
-  .questionnaire,.tasks, .dreams{
+  .questionnaire,
+  .tasks,
+  .dreams {
     min-width: 90%;
   }
   ::placeholder {
@@ -469,10 +473,9 @@ strong {
   .home div {
     width: 40%;
   }
-
 }
 
-@media screen and (min-width: 801px){
+@media screen and (min-width: 801px) {
   .home {
     display: flex;
     flex-direction: row;
@@ -487,11 +490,7 @@ strong {
 
 /* >>>>> ------------ MEDIA QUERIES -ENDED --------- <<<<<<<< */
 
-.tasks-link{
+.tasks-link {
   text-decoration: none;
-  color:black;
-}
-
-.checkbox{
-  width: 50px;
+  color: black;
 }
