@@ -26,9 +26,7 @@ h2 {
   margin-bottom: 5px;
 }
 
-hr {
-  color: blueviolet;
-}
+
 li {
   list-style: none;
 }
@@ -94,8 +92,8 @@ input[type="submit"] {
 }
 
 strong {
-  font-size: 20px;
-  color: red;
+  /* font-size: 20px; */
+  color: deeppink;
 }
 
 /* >>>>>>>---------CLASSES----------<<<<<< */
@@ -298,9 +296,10 @@ strong {
 }
 
 .go_to_component {
-  background-color: var(--blue-color);
-  color: var(--black-color);
-  border-color: transparent;
+  /* background-color: var(--blue-color); */
+  background-color: white;
+  color: var(--blue-color);
+  border:1px solid var(--blue-color);
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
@@ -310,6 +309,7 @@ strong {
 
 .go_to_component:hover{
   color: white;
+  background-color: var(--blue-color);
 }
 
 .go_to_mainpage {
@@ -507,15 +507,24 @@ strong {
 }
 
 #category{
-  background-color: black;
-  color: var(--yellow-color);
+  background-color: white;
+  /* color: var(--yellow-color); */
+  /* color: var(--blue-color);  */
+  color: var(--blue-color); 
   font-weight: bold;
-  border-radius: 5px;
-  padding: 2px;
-  border: 1px solid var(--blue-color);
-  margin: 2px;
+  /* border-radius: 5px; */
+  /* padding: 2px; */
+  /* border: 1px solid var(--blue-color); */
+  /* margin: 2px; */
 }
 
 #done{
   text-decoration: line-through;
+}
+
+hr{
+  height: 1px;
+  /* border-width: 1px; */
+  color: var(--blue-color);
+  /* color: deeppink; */
 }

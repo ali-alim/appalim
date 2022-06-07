@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { format, add } from "date-fns";
+import { flexbox } from "@mui/system";
 
 const API_URL = "http://appalim.herokuapp.com";
 // const API_URL = "http://localhost:5000";
@@ -32,70 +33,115 @@ const Tasks = ({ editMode }) => {
 
   return (
     <div className="tasks_page">
-      <Link to="/">
-        <button className="go_to_mainpage">Go to my main page</button>
-      </Link>
-  
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Link to="/task">
+          <button className="go_to_component">Create a new task</button>
+        </Link>
+        <Link to="/">
+          <button className="go_to_mainpage">Go to my main page</button>
+        </Link>
+      </div>
       <h1>Tasks to complete</h1>
       {myTasks
         .filter((mytask) => mytask.task_done === false)
+        .sort((a,b) => new Date(a.task_deadline) - new Date(b.task_deadline))
         .map((mytask, index) => (
-          <li key={index} id={index} style={{border:'1px solid var(--blue-color'}}>
+          <li
+            key={index}
+            id={index}
+            style={{
+              border: "2px solid var(--blue-color",
+              padding: "5px",
+              borderRadius: "10px",
+              margin: "5px",
+            }}
+          >
             <Link to={`/tasks/${mytask._id}`} className="tasks-link">
-              {mytask.task_date} - {""}
-              <span id="category">{mytask.task_category}</span> - {""}
+              <div>
+                <strong>
+                    {mytask.task_deadline === today && <span>Today</span> ||
+                    mytask.task_deadline === tomorrow && <span>Tomorrow</span> || 
+                    mytask.task_deadline }
+                  </strong> | {""}
+                <em>delay</em>:{" "}
+                <span style={{ textDecoration: "underline" }}>0</span> days |{" "}
+                <span id="category">{mytask.task_category}</span>
+                <br />
+                <hr />
+              </div>
               {mytask.task_name} - {""}
-              {mytask.task_deadline} {""} {""}
             </Link>
             <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
               delete
             </button>
           </li>
         ))}
-      <Link to="/task">
-        <button className="go_to_component">Create new task</button>
-      </Link>
-      {/* SHOWING TASKS FOR TODAY */}
 
-      <center><h2>TODAY</h2></center>
+   
+
+      {/* <center>
+        <h2>TODAY</h2>
+      </center>
       {myTasks
         .filter(
           (mytask) =>
             mytask.task_done === false && mytask.task_deadline === today
         )
         .map((mytask, index) => (
-          <li key={index} id={index}>
+          <li key={index} id={index} style={{
+            border: "2px solid var(--blue-color",
+            padding: "5px",
+            borderRadius: "10px",
+            margin: "5px",
+          }}>
             <Link to={`/tasks/${mytask._id}`} className="tasks-link">
-              {mytask.task_date} - {""}
-              <span id="category">{mytask.task_category}</span> - {""}
+            <div>
+                <strong>{mytask.task_deadline}</strong> | {""}
+                <em>delay</em>:{" "}
+                <span style={{ textDecoration: "underline" }}>0</span> days |{" "}
+                <span id="category">{mytask.task_category}</span>
+                <br />
+                <hr />
+              </div>
               {mytask.task_name} - {""}
-              {mytask.task_deadline} {""} {""}
             </Link>
             <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
               delete
             </button>
           </li>
-        ))}
+        ))} */}
 
-      <center><h2>TOMORROW</h2></center>
+      {/* <center>
+        <h2>TOMORROW</h2>
+      </center>
       {myTasks
         .filter(
           (mytask) =>
             mytask.task_done === false && mytask.task_deadline === tomorrow
         )
         .map((mytask, index) => (
-          <li key={index} id={index}>
+          <li key={index} id={index} style={{
+            border: "2px solid var(--blue-color",
+            padding: "5px",
+            borderRadius: "10px",
+            margin: "5px",
+          }}>
             <Link to={`/tasks/${mytask._id}`} className="tasks-link">
-              {mytask.task_date} - {""}
-              <span id="category">{mytask.task_category}</span> - {""}
+            <div>
+                <strong>{mytask.task_deadline}</strong> | {""}
+                <em>delay</em>:{" "}
+                <span style={{ textDecoration: "underline" }}>0</span> days |{" "}
+                <span id="category">{mytask.task_category}</span>
+                <br />
+                <hr />
+              </div>
               {mytask.task_name} - {""}
-              {mytask.task_deadline} {""} {""}
             </Link>
             <button id="delete_task_button" onClick={() => deleteTask(mytask)}>
               delete
             </button>
           </li>
-        ))}
+        ))} */}
 
       <div>
         <h1>Completed Tasks</h1>
@@ -104,9 +150,9 @@ const Tasks = ({ editMode }) => {
             .filter((task) => task.task_done === true)
             .map((task, index) => (
               <li key={index}>
-                {task.task_date} - 
+                {task.task_date} -
                 <span id="done">
-                {task.task_category} - {task.task_name} - {task.task_deadline}
+                  {task.task_category} - {task.task_name} - {task.task_deadline}
                 </span>
               </li>
             ))}
