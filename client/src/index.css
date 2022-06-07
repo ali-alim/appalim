@@ -165,6 +165,7 @@ strong {
   font-size: 15px;
 }
 
+
 #show_answers_button {
   background-color: var(--black-color);
   color: #5bccf6;
@@ -176,12 +177,15 @@ strong {
 }
 
 #delete_task_button {
-  background-color: var(--yellow-color);
-  color: deeppink;
+  background-color: deeppink;;
+  color: white;
   border-radius: 5px;
   padding: 2px;
   border: 1px solid deeppink;
   margin: 2px;
+}
+#delete_task_button:hover{
+  text-decoration: line-through;
 }
 
 #delete_visit_button {
@@ -304,15 +308,22 @@ strong {
   width: 100%; */
 }
 
+.go_to_component:hover{
+  color: white;
+}
+
 .go_to_mainpage {
-  background-color: var(--green-color);
-  color: var(--black-color);
-  border-color: transparent;
+  background-color: white;
+  color: deeppink;
+  border: 1px solid deeppink;
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
-  /* display: flex;
-  width: 100%; */
+}
+
+.go_to_mainpage:hover{
+  background-color: deeppink;
+  color: white;
 }
 
 .done_button {
@@ -493,4 +504,18 @@ strong {
 .tasks-link {
   text-decoration: none;
   color: black;
+}
+
+#category{
+  background-color: black;
+  color: var(--yellow-color);
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 2px;
+  border: 1px solid var(--blue-color);
+  margin: 2px;
+}
+
+#done{
+  text-decoration: line-through;
 }
