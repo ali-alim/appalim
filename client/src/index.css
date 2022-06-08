@@ -528,3 +528,16 @@ hr{
   color: var(--blue-color);
   /* color: deeppink; */
 }
+
+@media screen and (min-width:800px){
+  .app{
+    display: flex;
+    justify-content: center;
+  }
+  h1{
+    font-size:40px;
+  }
+  .tasks_li{
+    font-size: 25px;
+  }
+}

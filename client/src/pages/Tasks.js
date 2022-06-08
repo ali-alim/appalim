@@ -49,6 +49,7 @@ const Tasks = ({ editMode }) => {
           <li
             key={index}
             id={index}
+            className="tasks_li"
             style={{
               border: "2px solid var(--blue-color",
               padding: "5px",
