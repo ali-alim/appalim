@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import { Checkbox } from '@mui/material';
+import { Checkbox } from "@mui/material";
 import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
@@ -21,6 +21,8 @@ const Task = ({ editMode }) => {
     },
   });
 
+  const { onChange } = register("task_category");
+
   const onSubmit = async (data) => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
     task_date = formattedDate.toString();
@@ -33,7 +35,7 @@ const Task = ({ editMode }) => {
       task_deadline,
     };
     setTaskList([...taskList, task]);
-    console.log(task)
+    console.log(task);
     const payload = {
       ...task,
     };
@@ -140,6 +142,7 @@ const Task = ({ editMode }) => {
               value={selectedTask.task_name}
               {...register("task_name", { required: true })}
             />
+            <br />
             <input type="submit" value="Изменить" />
           </form>
         </>

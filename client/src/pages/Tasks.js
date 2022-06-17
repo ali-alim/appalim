@@ -44,7 +44,7 @@ const Tasks = ({ editMode }) => {
       <h1>Tasks to complete</h1>
       {myTasks
         .filter((mytask) => mytask.task_done === false)
-        .sort((a,b) => new Date(a.task_deadline) - new Date(b.task_deadline))
+        .sort((a, b) => new Date(...a.task_deadline.split('/').reverse()) - new Date(...b.task_deadline.split('/').reverse()))
         .map((mytask, index) => (
           <li
             key={index}
@@ -57,6 +57,7 @@ const Tasks = ({ editMode }) => {
               margin: "5px",
             }}
           >
+            
             <Link to={`/tasks/${mytask._id}`} className="tasks-link">
               <div>
                 <strong>

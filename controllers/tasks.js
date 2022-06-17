@@ -19,11 +19,11 @@ const createTasks = async (req, res) => {
 };
 
 const updateTask = async(req,res) => {
-  const updatedStatus = req.body.task_done;
+  const updatedInfo = req.body;
   const id = req.params.id;
   try{
     Tasks.findById(id, (err, updatedTask) => {
-      updatedTask.task_done = updatedStatus;
+      updatedTask = updatedInfo;
       updatedTask.save();
       console.log(`updatedTicket on the server: `,updatedTask)
       res.send("successfully updated")
