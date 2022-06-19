@@ -11,6 +11,8 @@ let today = format(new Date(), "dd/MM/yyyy");
 let tomorrow = format(add(new Date(), { days: 1 }), "dd/MM/yyyy");
 
 const Tasks = ({ editMode }) => {
+
+ 
   const [myTasks, setMyTasks] = useState([]);
 
   // 1. useEffect - axios.get -> getTasks
@@ -44,7 +46,7 @@ const Tasks = ({ editMode }) => {
       <h1>Tasks to complete</h1>
       {myTasks
         .filter((mytask) => mytask.task_done === false)
-        .sort((a, b) => new Date(...a.task_deadline.split('/').reverse()) - new Date(...b.task_deadline.split('/').reverse()))
+        // .sort((a, b) => new Date(...a.task_deadline.split('/').reverse()) - new Date(...b.task_deadline.split('/').reverse()))
         .map((mytask, index) => (
           <li
             key={index}
@@ -66,7 +68,8 @@ const Tasks = ({ editMode }) => {
                     mytask.task_deadline }
                   </strong> | {""}
                 <em>delay</em>:{" "}
-                <span style={{ textDecoration: "underline" }}>0</span> days |{" "}
+                <span style={{ textDecoration: "underline" }}>
+                X</span> days |{" "}
                 <span id="category">{mytask.task_category}</span>
                 <br />
                 <hr />
@@ -77,7 +80,7 @@ const Tasks = ({ editMode }) => {
               delete
             </button>
           </li>
-        ))}
+        ))} 
 
    
 
@@ -113,7 +116,7 @@ const Tasks = ({ editMode }) => {
           </li>
         ))} */}
 
-      {/* <center>
+       <center>
         <h2>TOMORROW</h2>
       </center>
       {myTasks
@@ -143,7 +146,7 @@ const Tasks = ({ editMode }) => {
               delete
             </button>
           </li>
-        ))} */}
+        ))}
 
       <div>
         <h1>Completed Tasks</h1>
