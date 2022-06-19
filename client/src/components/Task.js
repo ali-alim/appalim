@@ -21,7 +21,7 @@ const Task = ({ editMode }) => {
     },
   });
 
-  const { onChange } = register("task_category");
+  // const { onChange } = register("task_category");
 
   const onSubmit = async (data) => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");

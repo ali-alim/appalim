@@ -46,7 +46,7 @@ const Tasks = ({ editMode }) => {
       <h1>Tasks to complete</h1>
       {myTasks
         .filter((mytask) => mytask.task_done === false)
-        // .sort((a, b) => new Date(...a.task_deadline.split('/').reverse()) - new Date(...b.task_deadline.split('/').reverse()))
+        .sort((a, b) => new Date(...a.task_deadline.split('/').reverse()) - new Date(...b.task_deadline.split('/').reverse()))
         .map((mytask, index) => (
           <li
             key={index}
@@ -116,10 +116,8 @@ const Tasks = ({ editMode }) => {
           </li>
         ))} */}
 
-       <center>
-        <h2>TOMORROW</h2>
-      </center>
-      {myTasks
+
+      {/* {myTasks
         .filter(
           (mytask) =>
             mytask.task_done === false && mytask.task_deadline === tomorrow
@@ -146,7 +144,7 @@ const Tasks = ({ editMode }) => {
               delete
             </button>
           </li>
-        ))}
+        ))} */}
 
       <div>
         <h1>Completed Tasks</h1>
