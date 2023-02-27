@@ -5,9 +5,6 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const API_URL = "http://appalim.herokuapp.com";
-// const API_URL = "http://localhost:5000"
-
 const months = [
   "January",
   "February",
@@ -41,8 +38,6 @@ const Finance = () => {
     const numberOfMonth = new Date(today).getMonth()
     finance_month = months[numberOfMonth]
 
-    // console.log(`month name is: `, finance_month);
-
     const finance = {
       finance_date,
       finance_name,
@@ -54,11 +49,8 @@ const Finance = () => {
       ...finance,
     };
 
-    console.log(payload)
-
     axios({
-      // url: "/tasks",
-      url: API_URL + "/finances",
+      url: process.env.REACT_APP_API_URL + "/finances",
       method: "POST",
       data: payload,
     })

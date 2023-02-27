@@ -1,4 +1,4 @@
-const Visits = require("../models/Visits");
+const Visits = require("./../models/Visits");
 
 const getVisits = async (req, res) => {
   Visits.find({}, (err, result) => {

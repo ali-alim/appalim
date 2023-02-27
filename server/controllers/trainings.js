@@ -1,4 +1,4 @@
-const Trainings = require("../models/Trainings");
+const Trainings = require("./../models/Trainings");
 
 const getTrainings = async (req, res) => {
   Trainings.find({}, (err, result) => {

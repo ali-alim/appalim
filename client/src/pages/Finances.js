@@ -2,28 +2,27 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://appalim.herokuapp.com";
-
 const Finances = () => {
   const [myFinances, setMyFinances] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    axios
-      // .get("/tasks")
-      .get(API_URL + "/finances")
-
+      if(dataLoaded === false){
+        axios
+      .get(process.env.REACT_APP_API_URL + "/finances")
       .then((response) => {
         const data = response.data;
         setMyFinances(data);
+        setDataLoaded(true);
       })
       .catch(() => {
         alert("Error retrieving data");
       });
-  }, [myFinances]);
+      }
+  }, [myFinances, dataLoaded]);
 
   const deleteFinance = (id) => {
-    axios.delete(`${API_URL}/finances/${id}`, id);
-    // axios.delete(`${API_URL}/${id}`, id)
+    axios.delete(process.env.REACT_APP_API_URL + `/finances/${id}`, id);
   };
 
   return (

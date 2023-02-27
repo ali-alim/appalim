@@ -1,4 +1,4 @@
-const Answers = require("../models/Answers");
+const Answers = require("./../models/Answers");
 
 const getAnswers = async (req, res) => {
   Answers.find({}, (err, result) => {
@@ -11,8 +11,8 @@ const getAnswers = async (req, res) => {
 };
 
 const createAnswers = async (req, res) => {
-  const answer  = req.body;
-  console.log(`Body: `, req.body)
+  const answer = req.body;
+  console.log(`Body: `, req.body);
   const newAnswer = new Answers(answer);
   await newAnswer.save();
 

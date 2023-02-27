@@ -2,28 +2,27 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://appalim.herokuapp.com";
-
 const Dreams = () => {
   const [myDreams, setMyDreams] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
-    axios
-      // .get("/tasks")
-      .get(API_URL + "/dreams")
-
+    if(dataLoaded === false){
+      axios
+      .get(process.env.REACT_APP_API_URL + "/dreams")
       .then((response) => {
         const data = response.data;
         setMyDreams(data);
+        setDataLoaded(true);
       })
       .catch(() => {
         alert("Error retrieving data");
       });
-  }, [myDreams]);
+    }
+  }, [myDreams, dataLoaded]);
 
   const deleteDream = (id) => {
-    axios.delete(`${API_URL}/dreams/${id}`, id);
-    // axios.delete(`${API_URL}/${id}`, id)
+    axios.delete(process.env.REACT_APP_API_URL + `/dreams/${id}`, id);
   };
 
   return (

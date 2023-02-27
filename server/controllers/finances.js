@@ -1,4 +1,4 @@
-const Finances = require("../models/Finances");
+const Finances = require("./../models/Finances");
 
 const getFinances = async (req, res) => {
   Finances.find({}, (err, result) => {

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const {getTrainings, createTrainings, deleteTrainings} = require('../controllers/trainings')
+const {getTrainings, createTrainings, deleteTrainings} = require('./../controllers/trainings')
 
 router.get('/', getTrainings);
 router.post('/', createTrainings);

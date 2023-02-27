@@ -2,30 +2,29 @@ import React, {useState,useEffect} from 'react'
 import {Link} from "react-router-dom"
 import axios from 'axios'
 
-const API_URL = "http://appalim.herokuapp.com"
-
-
 const Trainings = () => {
 
-  const [mytrainings, setMyTrainings] = useState([])
+  const [mytrainings, setMyTrainings] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
+
 
   useEffect(() => {
-    axios
-      // .get("/tasks")
-      .get(API_URL + "/trainings")
-
+    if(dataLoaded === false){
+      axios
+      .get(process.env.REACT_APP_API_URL + "/trainings")
       .then((response) => {
         const data = response.data;
         setMyTrainings(data);
+        setDataLoaded(true);
       })
       .catch(() => {
         alert("Error retrieving data");
       });
-  }, [mytrainings]);
+    }
+  }, [mytrainings, dataLoaded]);
 
   const deleteTraining = (id) => {
-    axios.delete(`${API_URL}/trainings/${id}`, id)
-    // axios.delete(`${API_URL}/${id}`, id)
+    axios.delete(process.env.REACT_APP_API_URL + `/trainings/${id}`, id)
   }
 
   return (

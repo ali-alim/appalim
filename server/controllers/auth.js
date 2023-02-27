@@ -9,7 +9,7 @@ const generateAccessToken = (id, roles) => {
   const payload = {
     id,
     roles,
-  }
+  };
   return jwt.sign(payload, secret, { expiresIn: "24h" });
 };
 
@@ -31,7 +31,7 @@ const registration = async (req, res) => {
     const user = new User({
       username,
       password: hashPassword,
-      roles: [userRole.value]
+      roles: [userRole.value],
     });
     await user.save();
     return res.json({ message: "User was successfully registered" });
@@ -62,10 +62,9 @@ const login = async (req, res) => {
 };
 
 const getUsers = async (req, res) => {
-
   try {
-    const users = await User.find()
-    res.json(users)
+    const users = await User.find();
+    res.json(users);
   } catch (e) {}
 };
 

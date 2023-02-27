@@ -1,4 +1,4 @@
-const Tasks = require("../models/Tasks");
+const Tasks = require("./../models/Tasks");
 
 const getTasks = async (req, res) => {
   Tasks.find({}, (err, result) => {
@@ -18,23 +18,23 @@ const createTasks = async (req, res) => {
   res.json(task);
 };
 
-const updateTask = async(req,res) => {
+const updateTask = async (req, res) => {
   const updatedStatus = req.body.task_done;
   const id = req.params.id;
-  try{
+  try {
     Tasks.findById(id, (err, updatedTask) => {
       updatedTask.task_done = updatedStatus;
       updatedTask.save();
-      console.log(`updatedTicket on the server: `,updatedTask)
-      res.send("successfully updated")
+      console.log(`updatedTicket on the server: `, updatedTask);
+      res.send("successfully updated");
     });
-  } catch(err) {
-    console.log(err)
+  } catch (err) {
+    console.log(err);
   }
-}
+};
 
 const getTask = async (req, res) => {
-  Tasks.findById({_id:req.params.id}, (err, result) => {
+  Tasks.findById({ _id: req.params.id }, (err, result) => {
     if (err) {
       res.json(err);
     } else {

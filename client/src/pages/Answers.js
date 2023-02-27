@@ -2,10 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://appalim.herokuapp.com";
-// const API_URL = "http://localhost:5000/answers"
 const Answers = () => {
   const [answers, setAnswers] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   const questions = [
     "Как тебя зовут?",
@@ -29,18 +28,19 @@ const Answers = () => {
     "Если бы следующая неделя была бы последней в твоей жизни, какое бы одно дело ты сделал уже завтра?",
   ];
   useEffect(() => {
-    axios
-      // .get("/answers")
-      .get(API_URL + "/answers")
-
-      .then((response) => {
-        const data = response.data;
-        setAnswers(data);
-      })
-      .catch(() => {
-        alert("Error retrieving data");
-      });
-  }, []);
+    if (dataLoaded === false) {
+      axios
+        .get(process.env.REACT_APP_API_URL + "/answers")
+        .then((response) => {
+          const data = response.data;
+          setAnswers(data);
+          setDataLoaded(true);
+        })
+        .catch(() => {
+          alert("Error retrieving data");
+        });
+    }
+  }, [answers, dataLoaded]);
 
   return (
     <div className="answers_page">
@@ -112,7 +112,6 @@ const Answers = () => {
 export default Answers;
 
 // ADD TO ANSWERS ARRAY
-{
   /* <h2>{questions[3]}</h2>
 {answers.map((answer, index) => (
   <p>
@@ -240,4 +239,4 @@ export default Answers;
   </p>
 ))}
 <hr /> */
-}
+

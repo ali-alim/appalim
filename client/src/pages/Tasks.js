@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { format, add } from "date-fns";
-import { flexbox } from "@mui/system";
-
-const API_URL = "http://appalim.herokuapp.com";
-// const API_URL = "http://localhost:5000";
 
 let today = format(new Date(), "dd/MM/yyyy");
 let tomorrow = format(add(new Date(), { days: 1 }), "dd/MM/yyyy");
@@ -14,23 +10,26 @@ const Tasks = ({ editMode }) => {
 
  
   const [myTasks, setMyTasks] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
-  // 1. useEffect - axios.get -> getTasks
   useEffect(() => {
-    axios
-      .get(API_URL + "/api/tasks")
+    if(dataLoaded === false){
+      axios
+      .get(process.env.REACT_APP_API_URL + "/tasks")
       .then((response) => {
         const data = response.data;
         setMyTasks(data);
+        setDataLoaded(true);
       })
       .catch(() => {
         alert("Error retrieving data");
       });
-  }, [myTasks]);
+    }
+  }, [myTasks, dataLoaded]);
 
   const deleteTask = async (mytask) => {
     const id = mytask._id;
-    await axios.delete(`${API_URL}/api/tasks/${id}`, id);
+    await axios.delete(process.env.REACT_APP_API_URL +`/api/tasks/${id}`, id);
   };
 
   return (
@@ -63,8 +62,8 @@ const Tasks = ({ editMode }) => {
             <Link to={`/tasks/${mytask._id}`} className="tasks-link">
               <div>
                 <strong>
-                    {mytask.task_deadline === today && <span>Today</span> ||
-                    mytask.task_deadline === tomorrow && <span>Tomorrow</span> || 
+                    {(mytask.task_deadline === today && <span>Today</span>) ||
+                    (mytask.task_deadline === tomorrow && <span>Tomorrow</span>) || 
                     mytask.task_deadline }
                   </strong> | {""}
                 <em>delay</em>:{" "}

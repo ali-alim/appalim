@@ -1,4 +1,4 @@
-const Dreams = require("../models/Dreams");
+const Dreams = require("./../models/Dreams");
 
 const getDreams = async (req, res) => {
   Dreams.find({}, (err, result) => {

@@ -1,4 +1,4 @@
-const Deleted = require("../models/Deleted");
+const Deleted = require("./../models/Deleted");
 
 const getDeleted = async (req, res) => {
   Deleted.find({}, (err, result) => {

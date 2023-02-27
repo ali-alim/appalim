@@ -6,12 +6,10 @@ import { format } from "date-fns";
 import axios from "axios";
 let today = new Date();
 
-const API_URL = "http://appalim.herokuapp.com";
-// const API_URL = "http://localhost:5000";
-
 const Task = ({ editMode }) => {
   const [taskList, setTaskList] = useState([]);
   const [selectedTask, setSelectedTask] = useState({});
+  const [dataLoaded, setDataLoaded] = useState(false);
   const navigate = useNavigate();
   let { id } = useParams();
 
@@ -20,8 +18,6 @@ const Task = ({ editMode }) => {
       task_done: false,
     },
   });
-
-  // const { onChange } = register("task_category");
 
   const onSubmit = async (data) => {
     const formattedDate = format(new Date(today), "dd/MM/yyyy");
@@ -42,8 +38,7 @@ const Task = ({ editMode }) => {
 
     if (!editMode) {
       axios({
-        // url: "/tasks",
-        url: API_URL + "/api/tasks",
+        url: process.env.REACT_APP_API_URL + "/tasks",
         method: "POST",
         data: payload,
       })
@@ -60,7 +55,7 @@ const Task = ({ editMode }) => {
 
     if (editMode) {
       try {
-        await axios.put(`${API_URL}/api/tasks/${id}`, task);
+        await axios.put(process.env.REACT_APP_API_URL + `/tasks/${id}`, task);
       } catch (err) {
         console.log(err);
       }
@@ -75,20 +70,23 @@ const Task = ({ editMode }) => {
   let task_done = watch("task_done");
 
   const fetchData = async () => {
-    axios
-      .get(`${API_URL}/api/tasks/${id}`)
-      .then((response) => {
-        const data = response.data;
-        setSelectedTask(data);
-      })
-      .catch(() => {
-        alert("error retrieving data");
-      });
+    if (dataLoaded === false) {
+      axios
+        .get(process.env.REACT_APP_API_URL + `/api/tasks/${id}`)
+        .then((response) => {
+          const data = response.data;
+          setSelectedTask(data);
+          setDataLoaded(true);
+        })
+        .catch(() => {
+          alert("error retrieving data");
+        });
+    }
   };
 
   useEffect(() => {
     if (editMode) fetchData();
-  }, []);
+  }, [taskList, editMode]);
 
   return (
     <div className="task">
