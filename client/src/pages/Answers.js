@@ -30,7 +30,7 @@ const Answers = () => {
   useEffect(() => {
     if (dataLoaded === false) {
       axios
-        .get(process.env.REACT_APP_API_URL + "/answers")
+        .get(process.env.REACT_APP_API_URL + "answers")
         .then((response) => {
           const data = response.data;
           setAnswers(data);

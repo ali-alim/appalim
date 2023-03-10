@@ -9,7 +9,7 @@ const Visits = () => {
   useEffect(() => {
       if(dataLoaded === false){
         axios
-      .get(process.env.REACT_APP_API_URL + "/visits")
+      .get(process.env.REACT_APP_API_URL + "visits")
       .then((response) => {
         const data = response.data;
         setMyVisits(data);
@@ -22,7 +22,7 @@ const Visits = () => {
   }, [myVisits, dataLoaded]);
 
   const deleteVisit = (id) => {
-    axios.delete(process.env.REACT_APP_API_URL +`/visits/${id}`, id);
+    axios.delete(process.env.REACT_APP_API_URL +`visits/${id}`, id);
   };
 
   return (

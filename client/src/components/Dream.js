@@ -27,7 +27,7 @@ const Dream = () => {
     };
 
     axios({
-      url: process.env.REACT_APP_API_URL + "/dreams",
+      url: process.env.REACT_APP_API_URL + "dreams",
       method: "POST",
       data: payload,
     })

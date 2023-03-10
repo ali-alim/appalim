@@ -9,7 +9,7 @@ const Finances = () => {
   useEffect(() => {
       if(dataLoaded === false){
         axios
-      .get(process.env.REACT_APP_API_URL + "/finances")
+      .get(process.env.REACT_APP_API_URL + "finances")
       .then((response) => {
         const data = response.data;
         setMyFinances(data);
@@ -22,7 +22,7 @@ const Finances = () => {
   }, [myFinances, dataLoaded]);
 
   const deleteFinance = (id) => {
-    axios.delete(process.env.REACT_APP_API_URL + `/finances/${id}`, id);
+    axios.delete(process.env.REACT_APP_API_URL + `finances/${id}`, id);
   };
 
   return (

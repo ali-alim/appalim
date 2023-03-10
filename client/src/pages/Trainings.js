@@ -11,7 +11,7 @@ const Trainings = () => {
   useEffect(() => {
     if(dataLoaded === false){
       axios
-      .get(process.env.REACT_APP_API_URL + "/trainings")
+      .get(process.env.REACT_APP_API_URL + "trainings")
       .then((response) => {
         const data = response.data;
         setMyTrainings(data);
@@ -24,7 +24,7 @@ const Trainings = () => {
   }, [mytrainings, dataLoaded]);
 
   const deleteTraining = (id) => {
-    axios.delete(process.env.REACT_APP_API_URL + `/trainings/${id}`, id)
+    axios.delete(process.env.REACT_APP_API_URL + `trainings/${id}`, id)
   }
 
   return (

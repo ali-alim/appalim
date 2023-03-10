@@ -27,7 +27,7 @@ const Visit = () => {
     };
 
     axios({
-      url: process.env.REACT_APP_API_URL + "/visits",
+      url: process.env.REACT_APP_API_URL + "visits",
       method: "POST",
       data: payload,
     })

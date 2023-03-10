@@ -15,7 +15,7 @@ const Tasks = ({ editMode }) => {
   useEffect(() => {
     if(dataLoaded === false){
       axios
-      .get(process.env.REACT_APP_API_URL + "/tasks")
+      .get(process.env.REACT_APP_API_URL + "tasks")
       .then((response) => {
         const data = response.data;
         setMyTasks(data);
@@ -29,7 +29,7 @@ const Tasks = ({ editMode }) => {
 
   const deleteTask = async (mytask) => {
     const id = mytask._id;
-    await axios.delete(process.env.REACT_APP_API_URL +`/api/tasks/${id}`, id);
+    await axios.delete(process.env.REACT_APP_API_URL +`tasks/${id}`, id);
   };
 
   return (

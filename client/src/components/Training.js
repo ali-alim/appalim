@@ -57,7 +57,7 @@ const Training = () => {
     };
 
     axios({
-      url: process.env.REACT_APP_API_URL + "/trainings",
+      url: process.env.REACT_APP_API_URL + "trainings",
       method: "POST",
       data: payload,
     })

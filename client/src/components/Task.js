@@ -38,7 +38,7 @@ const Task = ({ editMode }) => {
 
     if (!editMode) {
       axios({
-        url: process.env.REACT_APP_API_URL + "/tasks",
+        url: process.env.REACT_APP_API_URL + "tasks",
         method: "POST",
         data: payload,
       })
@@ -55,7 +55,7 @@ const Task = ({ editMode }) => {
 
     if (editMode) {
       try {
-        await axios.put(process.env.REACT_APP_API_URL + `/tasks/${id}`, task);
+        await axios.put(process.env.REACT_APP_API_URL + `tasks/${id}`, task);
       } catch (err) {
         console.log(err);
       }
@@ -72,7 +72,7 @@ const Task = ({ editMode }) => {
   const fetchData = async () => {
     if (dataLoaded === false) {
       axios
-        .get(process.env.REACT_APP_API_URL + `/api/tasks/${id}`)
+        .get(process.env.REACT_APP_API_URL + `api/tasks/${id}`)
         .then((response) => {
           const data = response.data;
           setSelectedTask(data);

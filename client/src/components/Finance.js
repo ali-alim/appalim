@@ -50,7 +50,7 @@ const Finance = () => {
     };
 
     axios({
-      url: process.env.REACT_APP_API_URL + "/finances",
+      url: process.env.REACT_APP_API_URL + "finances",
       method: "POST",
       data: payload,
     })

@@ -45,7 +45,7 @@ const Form = () => {
     };
 
     axios({
-      url: process.env.REACT_APP_API_URL + "/answers",
+      url: process.env.REACT_APP_API_URL + "answers",
       method: "POST",
       data: payload,
     })

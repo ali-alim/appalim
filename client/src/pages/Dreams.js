@@ -9,7 +9,7 @@ const Dreams = () => {
   useEffect(() => {
     if(dataLoaded === false){
       axios
-      .get(process.env.REACT_APP_API_URL + "/dreams")
+      .get(process.env.REACT_APP_API_URL + "dreams")
       .then((response) => {
         const data = response.data;
         setMyDreams(data);
@@ -22,7 +22,7 @@ const Dreams = () => {
   }, [myDreams, dataLoaded]);
 
   const deleteDream = (id) => {
-    axios.delete(process.env.REACT_APP_API_URL + `/dreams/${id}`, id);
+    axios.delete(process.env.REACT_APP_API_URL + `dreams/${id}`, id);
   };
 
   return (
