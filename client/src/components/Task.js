@@ -72,7 +72,7 @@ const Task = ({ editMode }) => {
   const fetchData = async () => {
     if (dataLoaded === false) {
       axios
-        .get(process.env.REACT_APP_API_URL + `api/tasks/${id}`)
+        .get(process.env.REACT_APP_API_URL + `tasks/${id}`)
         .then((response) => {
           const data = response.data;
           setSelectedTask(data);
